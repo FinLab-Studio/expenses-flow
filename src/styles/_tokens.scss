@@ -1,7 +1,3 @@
-// Design tokens.
-// Colors depend on the theme; everything else is shared by both themes.
-// Breakpoints are Sass variables in _mixins.scss (CSS variables don't work in media queries).
-
 // Shared tokens
 :root {
   // Typography
@@ -78,4 +74,37 @@
   --color-warning-soft: #fef3c7;
   --color-warning-text: #92400e;
   --color-overlay: rgb(22 26 35 / 50%);
+}
+
+// Dark theme "night sky" (variant B): the same names, only the values change.
+// Turned on by <html data-theme="dark">
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  // Colors: surfaces and text
+  --color-bg: #0a1128;
+  --color-surface: #111b3c;
+  --color-surface-muted: #0d1632;
+  --color-border: #26335f;
+  --color-border-subtle: #1c2850;
+  --color-border-strong: #34437a;
+  --color-text: #e8ecfa;
+  --color-text-muted: #a7b0d6;
+
+  // Colors: accent
+  --color-primary: #8ea2ff;
+  --color-on-primary: #0a1128;
+  --color-primary-soft: #1f2b5c;
+  --color-primary-text: #c9d3ff;
+  --color-primary-text-hover: #e6ebff;
+
+  // Colors: status
+  --color-income: #5eead4;
+  --color-expense: #ff8a8a;
+  --color-success-soft: #15393f;
+  --color-success-text: #5eead4;
+  --color-warning: #f6c962;
+  --color-warning-soft: #3a3320;
+  --color-warning-text: #f6c962;
+  --color-overlay: rgb(2 6 20 / 70%);
 }
