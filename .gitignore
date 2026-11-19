@@ -159,6 +159,7 @@ vite.config.ts.timestamp-*
 # Editor directories and files (from Vite template)
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo
