@@ -1,0 +1,19 @@
+name: Create branch
+
+on:
+  issues:
+    types: [assigned]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Issue Branch
+        uses: robvanderleek/create-issue-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
