@@ -11,7 +11,7 @@ $breakpoints: (
 // Private helper: a typo in a breakpoint name fails the build instead of silently doing nothing.
 @function -breakpoint($name) {
   @if not map.has-key($breakpoints, $name) {
-    @error 'Unknown breakpoint "#{name}". Use one of: #{map.keys($breakpoints)}.';
+    @error 'Unknown breakpoint "#{$name}". Use one of: #{map.keys($breakpoints)}.';
   }
 
   @return map.get($breakpoints, $name);
