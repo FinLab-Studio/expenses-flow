@@ -1,0 +1,72 @@
+{
+  "income": [
+    {
+      "id": "salary",
+      "name": "Salary",
+      "color": "green",
+      "icon": "case"
+    },
+    {
+      "id": "freelance",
+      "name": "Freelance",
+      "color": "indigo",
+      "icon": "laptop"
+    },
+    {
+      "id": "gifts",
+      "name": "Gifts",
+      "color": "pink",
+      "icon": "gift"
+    },
+    {
+      "id": "other-income",
+      "name": "Other",
+      "color": "gray",
+      "icon": "dots"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "housing",
+      "name": "Housing",
+      "color": "indigo",
+      "icon": "home"
+    },
+    {
+      "id": "food-and-groceries",
+      "name": "Food and groceries",
+      "color": "amber",
+      "icon": "cart"
+    },
+    {
+      "id": "health",
+      "name": "Health",
+      "color": "green",
+      "icon": "health"
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "color": "pink",
+      "icon": "plane"
+    },
+    {
+      "id": "transport",
+      "name": "Transport",
+      "color": "teal",
+      "icon": "bus"
+    },
+    {
+      "id": "cafes",
+      "name": "Cafes",
+      "color": "rust",
+      "icon": "cup"
+    },
+    {
+      "id": "other-expenses",
+      "name": "Other",
+      "color": "gray",
+      "icon": "dots"
+    }
+  ]
+}
