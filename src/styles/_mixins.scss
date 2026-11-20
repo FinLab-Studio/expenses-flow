@@ -1,0 +1,42 @@
+@use 'sass:map';
+
+// Breakpoints: the layout changes at these widths.
+// Mobile mockups are 390px wide: that is a width to test at, not a breakpoint.
+// Sass variables, not CSS ones: var() does not work inside @media conditions.
+$breakpoints: (
+  md: 768px,
+  lg: 1024px,
+);
+
+// Private helper: a typo in a breakpoint name fails the build instead of silently doing nothing.
+@function -breakpoint($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error 'Unknown breakpoint "#{name}". Use one of: #{map.keys($breakpoints)}.';
+  }
+
+  @return map.get($breakpoints, $name);
+}
+
+// @include mx.up(md) { ... }   → width >= 768px
+@mixin up($name) {
+  @media (width >= -breakpoint($name)) {
+    @content;
+  }
+}
+
+// @include mx.down(md) { ... } → width < 768px
+@mixin down($name) {
+  @media (width < -breakpoint($name)) {
+    @content;
+  }
+}
+
+// Hides content visually but keeps it for screen readers.
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
