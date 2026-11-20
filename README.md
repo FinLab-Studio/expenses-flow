@@ -44,6 +44,41 @@ shared editor settings and recommended extensions live in `.vscode/`.
 | `npm run format`       | Format all files with Prettier     |
 | `npm run format:check` | Check formatting (used in CI)      |
 
+## Styles
+
+SCSS lives in `src/styles/`; the entry point `main.scss` is imported in `src/main.ts`.
+
+| File           | What it holds                                                                                                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `_tokens.scss` | Design tokens as CSS custom properties: shared ones (fonts, font sizes, spacing, radii) and theme colors — light by default, dark in `:root[data-theme='dark']` |
+| `_reset.scss`  | Minimal modern reset                                                                                                                                            |
+| `_mixins.scss` | Breakpoint mixins `up()` / `down()` (`md` = 768px, `lg` = 1024px) and `visually-hidden`                                                                         |
+| `_base.scss`   | Styles for plain HTML elements and the `.visually-hidden` class                                                                                                 |
+| `components/`  | Component styles (added with the app shell)                                                                                                                     |
+
+Conventions:
+
+- Use tokens instead of raw values: `var(--color-surface)`, `var(--space-4)`. A new color goes into both themes under the same name.
+- Name tokens by purpose (`--color-text-muted`), not by look (`--gray-600`): the dark theme changes the value, not the meaning.
+- Desktop first: write desktop styles by default and phone overrides in `@include mx.down(md)`. Use `up()` only for ranges (`up(md)` + `down(lg)`) and for mobile-only components (e.g. the bottom sheet).
+- Check the phone layout at 390px width (DevTools device toolbar).
+- Breakpoints are Sass variables because `var()` does not work in `@media` conditions; everything else is a CSS custom property.
+- Fonts (Inter, Space Grotesk) are self-hosted via Fontsource: no requests to Google Fonts.
+
+```scss
+@use '../../styles/mixins' as mx;
+
+.card {
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+
+  @include mx.down(md) {
+    padding: var(--space-4);
+  }
+}
+```
+
 ## Workflow
 
 - Branch from `dev`: `feat/`, `fix/`, `chore/`, `test/`, `docs/`, `refactor/` + short name + issue number, e.g. `feat/transaction-form-12`.

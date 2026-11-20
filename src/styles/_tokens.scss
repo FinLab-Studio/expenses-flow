@@ -1,0 +1,110 @@
+// Shared tokens
+:root {
+  // Typography
+  --font-body: 'Inter Variable', system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
+
+  --font-size-xs: 0.75rem; // 12px
+  --font-size-sm: 0.8125rem; // 13px
+  --font-size-md: 0.875rem; // 14px, body text
+  --font-size-lg: 0.9375rem; // 15px, nav, buttons
+  --font-size-xl: 1.125rem; // 18px, h2
+  --font-size-2xl: 1.375rem; // 22px, modal title
+  --font-size-3xl: 1.75rem; // 28px, card amounts
+  --font-size-4xl: 1.875rem; // 30px, h1
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+
+  // Spacing (4px grid)
+  --space-1: 0.25rem; // 4px
+  --space-2: 0.5rem; // 8px
+  --space-3: 0.75rem; // 12px
+  --space-4: 1rem; // 16px
+  --space-5: 1.25rem; // 20px
+  --space-6: 1.5rem; // 24px
+  --space-8: 2rem; // 32px
+  --space-10: 2.5rem; // 40px
+  --space-12: 3rem; // 48px
+
+  // Radii
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-pill: 999px;
+
+  // Sizes
+  --size-touch: 44px;
+  --sidebar-width: 232px;
+}
+
+// Light theme (default). The dark theme overrides these in [data-theme='dark'].
+:root {
+  color-scheme: light;
+
+  // Colors: surfaces and text
+  --color-bg: #f4f5f8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f9fafb;
+  --color-border: #e4e6ec;
+  --color-border-subtle: #eef0f4;
+  --color-border-strong: #c9ccd6;
+  --color-text: #161a23;
+  --color-text-muted: #5b6170;
+
+  // Colors: accent
+  --color-primary: #4f46e5;
+  --color-on-primary: #ffffff;
+  --color-primary-soft: #eef0ff;
+  --color-primary-text: #3730a3;
+  --color-primary-text-hover: #1e1b4b;
+
+  // Colors: status
+  --color-income: #047857;
+  --color-expense: #b42318;
+  --color-success-soft: #e7f6ef;
+  --color-success-text: #065f46;
+  --color-warning: #d97706;
+  --color-warning-soft: #fef3c7;
+  --color-warning-text: #92400e;
+  --color-overlay: rgb(22 26 35 / 50%);
+}
+
+// Dark theme "night sky" (variant B): the same names, only the values change.
+// Turned on by <html data-theme="dark">
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  // Colors: surfaces and text
+  --color-bg: #0a1128;
+  --color-surface: #111b3c;
+  --color-surface-muted: #0d1632;
+  --color-border: #26335f;
+  --color-border-subtle: #1c2850;
+  --color-border-strong: #34437a;
+  --color-text: #e8ecfa;
+  --color-text-muted: #a7b0d6;
+
+  // Colors: accent
+  --color-primary: #8ea2ff;
+  --color-on-primary: #0a1128;
+  --color-primary-soft: #1f2b5c;
+  --color-primary-text: #c9d3ff;
+  --color-primary-text-hover: #e6ebff;
+
+  // Colors: status
+  --color-income: #5eead4;
+  --color-expense: #ff8a8a;
+  --color-success-soft: #15393f;
+  --color-success-text: #5eead4;
+  --color-warning: #f6c962;
+  --color-warning-soft: #3a3320;
+  --color-warning-text: #f6c962;
+  --color-overlay: rgb(2 6 20 / 70%);
+}

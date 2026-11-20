@@ -1,0 +1,47 @@
+// Base styles for plain HTML elements: what every page gets without any class.
+
+@use 'mixins' as mx;
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+a {
+  color: var(--color-primary-text);
+
+  &:hover {
+    color: var(--color-primary-text-hover);
+  }
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  @include mx.visually-hidden;
+}
