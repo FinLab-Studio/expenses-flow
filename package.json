@@ -20,13 +20,8 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,mjs,ts}": [
-      "eslint",
-      "prettier --check"
-    ],
-    "*.{json,md,scss,css,html}": [
-      "prettier --check"
-    ]
+    "*.{js,mjs,cjs,ts,mts}": "eslint",
+    "*": "prettier --ignore-unknown --check"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
