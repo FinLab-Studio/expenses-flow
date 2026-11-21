@@ -1,25 +1,25 @@
 {
   "income": [
     {
-      "id": "income-salary",
+      "id": "1000",
       "name": "Salary",
       "color": "green",
       "icon": "case"
     },
     {
-      "id": "income-freelance",
+      "id": "1002",
       "name": "Freelance",
       "color": "indigo",
       "icon": "laptop"
     },
     {
-      "id": "income-gifts",
+      "id": "1003",
       "name": "Gifts",
       "color": "pink",
       "icon": "gift"
     },
     {
-      "id": "income-other",
+      "id": "1004",
       "name": "Other",
       "color": "gray",
       "icon": "dots"
@@ -27,43 +27,43 @@
   ],
   "expenses": [
     {
-      "id": "expense-housing",
+      "id": "1005",
       "name": "Housing",
       "color": "indigo",
       "icon": "home"
     },
     {
-      "id": "expense-food-and-groceries",
+      "id": "1006",
       "name": "Food and groceries",
       "color": "amber",
       "icon": "cart"
     },
     {
-      "id": "expense-health",
+      "id": "1007",
       "name": "Health",
       "color": "green",
       "icon": "health"
     },
     {
-      "id": "expense-entertainment",
+      "id": "1008",
       "name": "Entertainment",
       "color": "pink",
       "icon": "plane"
     },
     {
-      "id": "expense-transport",
+      "id": "1009",
       "name": "Transport",
       "color": "teal",
       "icon": "bus"
     },
     {
-      "id": "expense-cafes",
+      "id": "1010",
       "name": "Cafes",
       "color": "rust",
       "icon": "cup"
     },
     {
-      "id": "expense-other",
+      "id": "1011",
       "name": "Other",
       "color": "gray",
       "icon": "dots"
