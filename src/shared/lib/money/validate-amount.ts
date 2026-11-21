@@ -1,4 +1,5 @@
 import type { ValidationError } from '@/shared/types/validation-error.interface';
+import { parseAmount } from './parse-amount';
 
 export const MAX_AMOUNT_CENTS = 100_000_000;
 
@@ -21,13 +22,13 @@ export function validateAmount(input: string): ValidationError | null {
     return { message: AMOUNT_ERRORS.invalidFormat };
   }
 
-  const [whole, fraction = ''] = input.split(/[.,]/);
+  const [, fraction = ''] = input.split(/[.,]/);
 
   if (fraction.length > 2) {
     return { message: AMOUNT_ERRORS.tooManyDecimals };
   }
 
-  const cents = Number(whole) * 100 + Number(fraction.padEnd(2, '0'));
+  const cents = parseAmount(input);
 
   if (cents <= 0) {
     return { message: AMOUNT_ERRORS.notPositive };
