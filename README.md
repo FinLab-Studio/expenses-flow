@@ -84,3 +84,4 @@ Conventions:
 - Branch from `dev`: `feat/`, `fix/`, `chore/`, `test/`, `docs/`, `refactor/` + short name + issue number, e.g. `feat/transaction-form-12`.
 - Open a PR into `dev`; CI (lint, format, typecheck, test, build) must pass; one approval; squash merge.
 - `main` receives `dev` at the end of the project.
+- Imports: `@/` points to `src/` (`@/shared/types/transaction-type.type`); files in the same folder import each other relatively (`./parse-amount`).
