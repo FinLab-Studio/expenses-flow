@@ -10,7 +10,7 @@ describe('validateAmount', () => {
     expect(validateAmount('')).toEqual({ message: AMOUNT_ERRORS.empty });
   });
 
-  it('rejects an letters', () => {
+  it('rejects letters', () => {
     expect(validateAmount('abc')).toEqual({ message: AMOUNT_ERRORS.invalidFormat });
   });
 
