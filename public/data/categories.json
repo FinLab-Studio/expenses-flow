@@ -1,7 +1,7 @@
 {
   "income": [
     {
-      "id": "1000",
+      "id": "1001",
       "name": "Salary",
       "color": "green",
       "icon": "case"
@@ -48,7 +48,7 @@
       "id": "1008",
       "name": "Entertainment",
       "color": "pink",
-      "icon": "plane"
+      "icon": "ticket"
     },
     {
       "id": "1009",
