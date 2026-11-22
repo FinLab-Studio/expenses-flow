@@ -1,7 +1,7 @@
 import type { ValidationError } from '@/shared/types/validation-error.interface';
 import { parseAmount } from './parse-amount';
 
-export const MAX_AMOUNT_CENTS = 100_000_000;
+export const MAX_AMOUNT_CENTS = 100_000_000; // to stop pasted garbage like '99999999999999999999'
 
 export const AMOUNT_ERRORS = {
   empty: 'Enter an amount',
