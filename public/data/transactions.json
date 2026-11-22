@@ -1,0 +1,1290 @@
+[
+  {
+    "id": "2001",
+    "type": "income",
+    "amount": 235000,
+    "categoryId": "1001",
+    "date": "2026-06-01",
+    "description": "Monthly salary"
+  },
+  {
+    "id": "2003",
+    "type": "expenses",
+    "amount": 4762,
+    "categoryId": "1006",
+    "date": "2026-06-02",
+    "description": "Market"
+  },
+  {
+    "id": "2002",
+    "type": "expenses",
+    "amount": 89689,
+    "categoryId": "1005",
+    "date": "2026-06-03",
+    "description": "Rent"
+  },
+  {
+    "id": "2004",
+    "type": "expenses",
+    "amount": 3198,
+    "categoryId": "1006",
+    "date": "2026-06-04",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2025",
+    "type": "expenses",
+    "amount": 6313,
+    "categoryId": "1011",
+    "date": "2026-06-04",
+    "description": "Personal purchase"
+  },
+  {
+    "id": "2005",
+    "type": "expenses",
+    "amount": 6675,
+    "categoryId": "1006",
+    "date": "2026-06-07",
+    "description": "Market"
+  },
+  {
+    "id": "2022",
+    "type": "expenses",
+    "amount": 7457,
+    "categoryId": "1008",
+    "date": "2026-06-08",
+    "description": "Concert"
+  },
+  {
+    "id": "2006",
+    "type": "expenses",
+    "amount": 5024,
+    "categoryId": "1006",
+    "date": "2026-06-10",
+    "description": "Market"
+  },
+  {
+    "id": "2007",
+    "type": "expenses",
+    "amount": 4618,
+    "categoryId": "1006",
+    "date": "2026-06-12",
+    "description": "Groceries"
+  },
+  {
+    "id": "2014",
+    "type": "expenses",
+    "amount": 2217,
+    "categoryId": "1009",
+    "date": "2026-06-12",
+    "description": "Public transport"
+  },
+  {
+    "id": "2018",
+    "type": "expenses",
+    "amount": 2180,
+    "categoryId": "1010",
+    "date": "2026-06-12",
+    "description": "Cafe"
+  },
+  {
+    "id": "2008",
+    "type": "expenses",
+    "amount": 3805,
+    "categoryId": "1006",
+    "date": "2026-06-13",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2024",
+    "type": "expenses",
+    "amount": 9103,
+    "categoryId": "1007",
+    "date": "2026-06-16",
+    "description": "Doctor appointment"
+  },
+  {
+    "id": "2027",
+    "type": "income",
+    "amount": 37879,
+    "categoryId": "1002",
+    "date": "2026-06-16",
+    "description": "Project milestone"
+  },
+  {
+    "id": "2015",
+    "type": "expenses",
+    "amount": 1340,
+    "categoryId": "1009",
+    "date": "2026-06-17",
+    "description": "Public transport"
+  },
+  {
+    "id": "2009",
+    "type": "expenses",
+    "amount": 2436,
+    "categoryId": "1006",
+    "date": "2026-06-18",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2019",
+    "type": "expenses",
+    "amount": 2428,
+    "categoryId": "1010",
+    "date": "2026-06-20",
+    "description": "Cafe"
+  },
+  {
+    "id": "2023",
+    "type": "expenses",
+    "amount": 5633,
+    "categoryId": "1008",
+    "date": "2026-06-20",
+    "description": "Event tickets"
+  },
+  {
+    "id": "2010",
+    "type": "expenses",
+    "amount": 2445,
+    "categoryId": "1006",
+    "date": "2026-06-21",
+    "description": "Market"
+  },
+  {
+    "id": "2020",
+    "type": "expenses",
+    "amount": 2418,
+    "categoryId": "1010",
+    "date": "2026-06-23",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2011",
+    "type": "expenses",
+    "amount": 3017,
+    "categoryId": "1006",
+    "date": "2026-06-25",
+    "description": "Groceries"
+  },
+  {
+    "id": "2016",
+    "type": "expenses",
+    "amount": 1167,
+    "categoryId": "1009",
+    "date": "2026-06-25",
+    "description": "Public transport"
+  },
+  {
+    "id": "2012",
+    "type": "expenses",
+    "amount": 3688,
+    "categoryId": "1006",
+    "date": "2026-06-26",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2021",
+    "type": "expenses",
+    "amount": 2776,
+    "categoryId": "1010",
+    "date": "2026-06-27",
+    "description": "Coffee"
+  },
+  {
+    "id": "2026",
+    "type": "expenses",
+    "amount": 5714,
+    "categoryId": "1011",
+    "date": "2026-06-28",
+    "description": "Small expenses"
+  },
+  {
+    "id": "2013",
+    "type": "expenses",
+    "amount": 4835,
+    "categoryId": "1006",
+    "date": "2026-06-29",
+    "description": "Groceries"
+  },
+  {
+    "id": "2017",
+    "type": "expenses",
+    "amount": 1527,
+    "categoryId": "1009",
+    "date": "2026-06-30",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2028",
+    "type": "income",
+    "amount": 43453,
+    "categoryId": "1002",
+    "date": "2026-06-30",
+    "description": "Project milestone"
+  },
+  {
+    "id": "2029",
+    "type": "income",
+    "amount": 235000,
+    "categoryId": "1001",
+    "date": "2026-07-01",
+    "description": "Monthly salary"
+  },
+  {
+    "id": "2031",
+    "type": "expenses",
+    "amount": 5716,
+    "categoryId": "1006",
+    "date": "2026-07-02",
+    "description": "Market"
+  },
+  {
+    "id": "2042",
+    "type": "expenses",
+    "amount": 1148,
+    "categoryId": "1009",
+    "date": "2026-07-02",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2053",
+    "type": "expenses",
+    "amount": 4083,
+    "categoryId": "1011",
+    "date": "2026-07-02",
+    "description": "Household items"
+  },
+  {
+    "id": "2030",
+    "type": "expenses",
+    "amount": 84812,
+    "categoryId": "1005",
+    "date": "2026-07-03",
+    "description": "Rent"
+  },
+  {
+    "id": "2032",
+    "type": "expenses",
+    "amount": 4371,
+    "categoryId": "1006",
+    "date": "2026-07-05",
+    "description": "Groceries"
+  },
+  {
+    "id": "2033",
+    "type": "expenses",
+    "amount": 5699,
+    "categoryId": "1006",
+    "date": "2026-07-07",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2054",
+    "type": "expenses",
+    "amount": 2678,
+    "categoryId": "1011",
+    "date": "2026-07-07",
+    "description": "Household items"
+  },
+  {
+    "id": "2034",
+    "type": "expenses",
+    "amount": 5191,
+    "categoryId": "1006",
+    "date": "2026-07-08",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2043",
+    "type": "expenses",
+    "amount": 2351,
+    "categoryId": "1009",
+    "date": "2026-07-08",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2035",
+    "type": "expenses",
+    "amount": 6048,
+    "categoryId": "1006",
+    "date": "2026-07-10",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2036",
+    "type": "expenses",
+    "amount": 3615,
+    "categoryId": "1006",
+    "date": "2026-07-11",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2037",
+    "type": "expenses",
+    "amount": 2620,
+    "categoryId": "1006",
+    "date": "2026-07-13",
+    "description": "Market"
+  },
+  {
+    "id": "2038",
+    "type": "expenses",
+    "amount": 2322,
+    "categoryId": "1006",
+    "date": "2026-07-14",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2056",
+    "type": "income",
+    "amount": 9840,
+    "categoryId": "1003",
+    "date": "2026-07-17",
+    "description": "Gift"
+  },
+  {
+    "id": "2050",
+    "type": "expenses",
+    "amount": 7017,
+    "categoryId": "1008",
+    "date": "2026-07-18",
+    "description": "Cinema"
+  },
+  {
+    "id": "2039",
+    "type": "expenses",
+    "amount": 4293,
+    "categoryId": "1006",
+    "date": "2026-07-20",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2044",
+    "type": "expenses",
+    "amount": 917,
+    "categoryId": "1009",
+    "date": "2026-07-20",
+    "description": "Taxi"
+  },
+  {
+    "id": "2052",
+    "type": "expenses",
+    "amount": 4731,
+    "categoryId": "1007",
+    "date": "2026-07-20",
+    "description": "Pharmacy"
+  },
+  {
+    "id": "2046",
+    "type": "expenses",
+    "amount": 1904,
+    "categoryId": "1010",
+    "date": "2026-07-22",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2047",
+    "type": "expenses",
+    "amount": 905,
+    "categoryId": "1010",
+    "date": "2026-07-23",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2051",
+    "type": "expenses",
+    "amount": 7518,
+    "categoryId": "1008",
+    "date": "2026-07-23",
+    "description": "Concert"
+  },
+  {
+    "id": "2055",
+    "type": "income",
+    "amount": 94513,
+    "categoryId": "1002",
+    "date": "2026-07-25",
+    "description": "Design work"
+  },
+  {
+    "id": "2048",
+    "type": "expenses",
+    "amount": 2676,
+    "categoryId": "1010",
+    "date": "2026-07-26",
+    "description": "Coffee"
+  },
+  {
+    "id": "2040",
+    "type": "expenses",
+    "amount": 6580,
+    "categoryId": "1006",
+    "date": "2026-07-29",
+    "description": "Market"
+  },
+  {
+    "id": "2045",
+    "type": "expenses",
+    "amount": 2467,
+    "categoryId": "1009",
+    "date": "2026-07-29",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2041",
+    "type": "expenses",
+    "amount": 7121,
+    "categoryId": "1006",
+    "date": "2026-07-30",
+    "description": "Groceries"
+  },
+  {
+    "id": "2049",
+    "type": "expenses",
+    "amount": 839,
+    "categoryId": "1010",
+    "date": "2026-07-30",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2057",
+    "type": "income",
+    "amount": 235000,
+    "categoryId": "1001",
+    "date": "2026-08-01",
+    "description": "Monthly salary"
+  },
+  {
+    "id": "2070",
+    "type": "expenses",
+    "amount": 569,
+    "categoryId": "1009",
+    "date": "2026-08-02",
+    "description": "Public transport"
+  },
+  {
+    "id": "2058",
+    "type": "expenses",
+    "amount": 84234,
+    "categoryId": "1005",
+    "date": "2026-08-03",
+    "description": "Rent"
+  },
+  {
+    "id": "2059",
+    "type": "expenses",
+    "amount": 4008,
+    "categoryId": "1006",
+    "date": "2026-08-04",
+    "description": "Market"
+  },
+  {
+    "id": "2081",
+    "type": "expenses",
+    "amount": 1511,
+    "categoryId": "1011",
+    "date": "2026-08-04",
+    "description": "Personal purchase"
+  },
+  {
+    "id": "2060",
+    "type": "expenses",
+    "amount": 3512,
+    "categoryId": "1006",
+    "date": "2026-08-05",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2061",
+    "type": "expenses",
+    "amount": 6142,
+    "categoryId": "1006",
+    "date": "2026-08-07",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2074",
+    "type": "expenses",
+    "amount": 945,
+    "categoryId": "1010",
+    "date": "2026-08-09",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2071",
+    "type": "expenses",
+    "amount": 2556,
+    "categoryId": "1009",
+    "date": "2026-08-12",
+    "description": "Public transport"
+  },
+  {
+    "id": "2075",
+    "type": "expenses",
+    "amount": 1567,
+    "categoryId": "1010",
+    "date": "2026-08-13",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2062",
+    "type": "expenses",
+    "amount": 3347,
+    "categoryId": "1006",
+    "date": "2026-08-17",
+    "description": "Market"
+  },
+  {
+    "id": "2063",
+    "type": "expenses",
+    "amount": 5263,
+    "categoryId": "1006",
+    "date": "2026-08-18",
+    "description": "Groceries"
+  },
+  {
+    "id": "2078",
+    "type": "expenses",
+    "amount": 5337,
+    "categoryId": "1008",
+    "date": "2026-08-18",
+    "description": "Event tickets"
+  },
+  {
+    "id": "2080",
+    "type": "expenses",
+    "amount": 6425,
+    "categoryId": "1007",
+    "date": "2026-08-18",
+    "description": "Doctor appointment"
+  },
+  {
+    "id": "2064",
+    "type": "expenses",
+    "amount": 7087,
+    "categoryId": "1006",
+    "date": "2026-08-19",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2072",
+    "type": "expenses",
+    "amount": 2211,
+    "categoryId": "1009",
+    "date": "2026-08-19",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2076",
+    "type": "expenses",
+    "amount": 1698,
+    "categoryId": "1010",
+    "date": "2026-08-19",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2065",
+    "type": "expenses",
+    "amount": 1919,
+    "categoryId": "1006",
+    "date": "2026-08-20",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2066",
+    "type": "expenses",
+    "amount": 3810,
+    "categoryId": "1006",
+    "date": "2026-08-21",
+    "description": "Market"
+  },
+  {
+    "id": "2077",
+    "type": "expenses",
+    "amount": 852,
+    "categoryId": "1010",
+    "date": "2026-08-21",
+    "description": "Coffee"
+  },
+  {
+    "id": "2083",
+    "type": "income",
+    "amount": 87902,
+    "categoryId": "1002",
+    "date": "2026-08-21",
+    "description": "Design work"
+  },
+  {
+    "id": "2067",
+    "type": "expenses",
+    "amount": 3635,
+    "categoryId": "1006",
+    "date": "2026-08-24",
+    "description": "Market"
+  },
+  {
+    "id": "2082",
+    "type": "expenses",
+    "amount": 2328,
+    "categoryId": "1011",
+    "date": "2026-08-24",
+    "description": "Household items"
+  },
+  {
+    "id": "2084",
+    "type": "income",
+    "amount": 30114,
+    "categoryId": "1002",
+    "date": "2026-08-24",
+    "description": "Project milestone"
+  },
+  {
+    "id": "2068",
+    "type": "expenses",
+    "amount": 4069,
+    "categoryId": "1006",
+    "date": "2026-08-26",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2069",
+    "type": "expenses",
+    "amount": 6664,
+    "categoryId": "1006",
+    "date": "2026-08-28",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2073",
+    "type": "expenses",
+    "amount": 1968,
+    "categoryId": "1009",
+    "date": "2026-08-28",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2079",
+    "type": "expenses",
+    "amount": 2060,
+    "categoryId": "1008",
+    "date": "2026-08-29",
+    "description": "Museum"
+  },
+  {
+    "id": "2085",
+    "type": "income",
+    "amount": 235000,
+    "categoryId": "1001",
+    "date": "2026-09-01",
+    "description": "Monthly salary"
+  },
+  {
+    "id": "2102",
+    "type": "expenses",
+    "amount": 2526,
+    "categoryId": "1010",
+    "date": "2026-09-01",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2109",
+    "type": "expenses",
+    "amount": 3461,
+    "categoryId": "1011",
+    "date": "2026-09-02",
+    "description": "Small expenses"
+  },
+  {
+    "id": "2086",
+    "type": "expenses",
+    "amount": 85034,
+    "categoryId": "1005",
+    "date": "2026-09-03",
+    "description": "Rent"
+  },
+  {
+    "id": "2103",
+    "type": "expenses",
+    "amount": 2754,
+    "categoryId": "1010",
+    "date": "2026-09-04",
+    "description": "Lunch out"
+  },
+  {
+    "id": "2087",
+    "type": "expenses",
+    "amount": 2703,
+    "categoryId": "1006",
+    "date": "2026-09-05",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2088",
+    "type": "expenses",
+    "amount": 4189,
+    "categoryId": "1006",
+    "date": "2026-09-09",
+    "description": "Groceries"
+  },
+  {
+    "id": "2098",
+    "type": "expenses",
+    "amount": 1301,
+    "categoryId": "1009",
+    "date": "2026-09-10",
+    "description": "Public transport"
+  },
+  {
+    "id": "2089",
+    "type": "expenses",
+    "amount": 4717,
+    "categoryId": "1006",
+    "date": "2026-09-11",
+    "description": "Groceries"
+  },
+  {
+    "id": "2099",
+    "type": "expenses",
+    "amount": 1639,
+    "categoryId": "1009",
+    "date": "2026-09-11",
+    "description": "Taxi"
+  },
+  {
+    "id": "2090",
+    "type": "expenses",
+    "amount": 3937,
+    "categoryId": "1006",
+    "date": "2026-09-12",
+    "description": "Market"
+  },
+  {
+    "id": "2110",
+    "type": "expenses",
+    "amount": 2338,
+    "categoryId": "1011",
+    "date": "2026-09-13",
+    "description": "Personal purchase"
+  },
+  {
+    "id": "2091",
+    "type": "expenses",
+    "amount": 5884,
+    "categoryId": "1006",
+    "date": "2026-09-15",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2106",
+    "type": "expenses",
+    "amount": 3493,
+    "categoryId": "1008",
+    "date": "2026-09-15",
+    "description": "Concert"
+  },
+  {
+    "id": "2092",
+    "type": "expenses",
+    "amount": 6290,
+    "categoryId": "1006",
+    "date": "2026-09-18",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2104",
+    "type": "expenses",
+    "amount": 1692,
+    "categoryId": "1010",
+    "date": "2026-09-18",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2108",
+    "type": "expenses",
+    "amount": 3519,
+    "categoryId": "1007",
+    "date": "2026-09-18",
+    "description": "Pharmacy"
+  },
+  {
+    "id": "2112",
+    "type": "income",
+    "amount": 12500,
+    "categoryId": "1004",
+    "date": "2026-09-18",
+    "description": "Refund"
+  },
+  {
+    "id": "2105",
+    "type": "expenses",
+    "amount": 2237,
+    "categoryId": "1010",
+    "date": "2026-09-21",
+    "description": "Coffee"
+  },
+  {
+    "id": "2093",
+    "type": "expenses",
+    "amount": 3386,
+    "categoryId": "1006",
+    "date": "2026-09-22",
+    "description": "Market"
+  },
+  {
+    "id": "2100",
+    "type": "expenses",
+    "amount": 1825,
+    "categoryId": "1009",
+    "date": "2026-09-22",
+    "description": "Public transport"
+  },
+  {
+    "id": "2111",
+    "type": "income",
+    "amount": 72184,
+    "categoryId": "1002",
+    "date": "2026-09-22",
+    "description": "Freelance payment"
+  },
+  {
+    "id": "2094",
+    "type": "expenses",
+    "amount": 5023,
+    "categoryId": "1006",
+    "date": "2026-09-24",
+    "description": "Market"
+  },
+  {
+    "id": "2095",
+    "type": "expenses",
+    "amount": 5886,
+    "categoryId": "1006",
+    "date": "2026-09-25",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2101",
+    "type": "expenses",
+    "amount": 1381,
+    "categoryId": "1009",
+    "date": "2026-09-26",
+    "description": "Public transport"
+  },
+  {
+    "id": "2096",
+    "type": "expenses",
+    "amount": 4677,
+    "categoryId": "1006",
+    "date": "2026-09-27",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2097",
+    "type": "expenses",
+    "amount": 3331,
+    "categoryId": "1006",
+    "date": "2026-09-28",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2107",
+    "type": "expenses",
+    "amount": 7659,
+    "categoryId": "1008",
+    "date": "2026-09-28",
+    "description": "Cinema"
+  },
+  {
+    "id": "2113",
+    "type": "income",
+    "amount": 235000,
+    "categoryId": "1001",
+    "date": "2026-10-01",
+    "description": "Monthly salary"
+  },
+  {
+    "id": "2130",
+    "type": "expenses",
+    "amount": 842,
+    "categoryId": "1010",
+    "date": "2026-10-01",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": "2115",
+    "type": "expenses",
+    "amount": 5171,
+    "categoryId": "1006",
+    "date": "2026-10-02",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2114",
+    "type": "expenses",
+    "amount": 83962,
+    "categoryId": "1005",
+    "date": "2026-10-03",
+    "description": "Rent"
+  },
+  {
+    "id": "2126",
+    "type": "expenses",
+    "amount": 1816,
+    "categoryId": "1009",
+    "date": "2026-10-03",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2116",
+    "type": "expenses",
+    "amount": 4382,
+    "categoryId": "1006",
+    "date": "2026-10-04",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2127",
+    "type": "expenses",
+    "amount": 2343,
+    "categoryId": "1009",
+    "date": "2026-10-04",
+    "description": "Taxi"
+  },
+  {
+    "id": "2131",
+    "type": "expenses",
+    "amount": 1916,
+    "categoryId": "1010",
+    "date": "2026-10-05",
+    "description": "Cafe"
+  },
+  {
+    "id": "2117",
+    "type": "expenses",
+    "amount": 5191,
+    "categoryId": "1006",
+    "date": "2026-10-08",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2118",
+    "type": "expenses",
+    "amount": 5720,
+    "categoryId": "1006",
+    "date": "2026-10-09",
+    "description": "Groceries"
+  },
+  {
+    "id": "2136",
+    "type": "expenses",
+    "amount": 1823,
+    "categoryId": "1007",
+    "date": "2026-10-09",
+    "description": "Doctor appointment"
+  },
+  {
+    "id": "2141",
+    "type": "income",
+    "amount": 12734,
+    "categoryId": "1003",
+    "date": "2026-10-09",
+    "description": "Gift"
+  },
+  {
+    "id": "2119",
+    "type": "expenses",
+    "amount": 2264,
+    "categoryId": "1006",
+    "date": "2026-10-10",
+    "description": "Groceries"
+  },
+  {
+    "id": "2139",
+    "type": "income",
+    "amount": 75193,
+    "categoryId": "1002",
+    "date": "2026-10-10",
+    "description": "Project milestone"
+  },
+  {
+    "id": "2120",
+    "type": "expenses",
+    "amount": 7025,
+    "categoryId": "1006",
+    "date": "2026-10-11",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2137",
+    "type": "expenses",
+    "amount": 4469,
+    "categoryId": "1011",
+    "date": "2026-10-11",
+    "description": "Household items"
+  },
+  {
+    "id": "2138",
+    "type": "expenses",
+    "amount": 2899,
+    "categoryId": "1011",
+    "date": "2026-10-13",
+    "description": "Household items"
+  },
+  {
+    "id": "2121",
+    "type": "expenses",
+    "amount": 3849,
+    "categoryId": "1006",
+    "date": "2026-10-14",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2134",
+    "type": "expenses",
+    "amount": 7415,
+    "categoryId": "1008",
+    "date": "2026-10-14",
+    "description": "Event tickets"
+  },
+  {
+    "id": "2122",
+    "type": "expenses",
+    "amount": 4527,
+    "categoryId": "1006",
+    "date": "2026-10-15",
+    "description": "Groceries"
+  },
+  {
+    "id": "2128",
+    "type": "expenses",
+    "amount": 1677,
+    "categoryId": "1009",
+    "date": "2026-10-18",
+    "description": "Transport pass"
+  },
+  {
+    "id": "2132",
+    "type": "expenses",
+    "amount": 1492,
+    "categoryId": "1010",
+    "date": "2026-10-18",
+    "description": "Cafe"
+  },
+  {
+    "id": "2129",
+    "type": "expenses",
+    "amount": 2548,
+    "categoryId": "1009",
+    "date": "2026-10-20",
+    "description": "Public transport"
+  },
+  {
+    "id": "2135",
+    "type": "expenses",
+    "amount": 1860,
+    "categoryId": "1008",
+    "date": "2026-10-21",
+    "description": "Cinema"
+  },
+  {
+    "id": "2123",
+    "type": "expenses",
+    "amount": 5107,
+    "categoryId": "1006",
+    "date": "2026-10-25",
+    "description": "Groceries"
+  },
+  {
+    "id": "2124",
+    "type": "expenses",
+    "amount": 3917,
+    "categoryId": "1006",
+    "date": "2026-10-27",
+    "description": "Groceries"
+  },
+  {
+    "id": "2133",
+    "type": "expenses",
+    "amount": 1979,
+    "categoryId": "1010",
+    "date": "2026-10-27",
+    "description": "Lunch out"
+  },
+  {
+    "id": "2125",
+    "type": "expenses",
+    "amount": 5476,
+    "categoryId": "1006",
+    "date": "2026-10-28",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2140",
+    "type": "income",
+    "amount": 31960,
+    "categoryId": "1002",
+    "date": "2026-10-28",
+    "description": "Design work"
+  },
+  {
+    "id": "2155",
+    "type": "expenses",
+    "amount": 1888,
+    "categoryId": "1010",
+    "date": "2026-11-01",
+    "description": "Coffee"
+  },
+  {
+    "id": "2142",
+    "type": "income",
+    "amount": 235000,
+    "categoryId": "1001",
+    "date": "2026-11-02",
+    "description": "Monthly salary"
+  },
+  {
+    "id": "2144",
+    "type": "expenses",
+    "amount": 4291,
+    "categoryId": "1006",
+    "date": "2026-11-02",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2143",
+    "type": "expenses",
+    "amount": 89958,
+    "categoryId": "1005",
+    "date": "2026-11-04",
+    "description": "Rent"
+  },
+  {
+    "id": "2145",
+    "type": "expenses",
+    "amount": 6388,
+    "categoryId": "1006",
+    "date": "2026-11-04",
+    "description": "Groceries"
+  },
+  {
+    "id": "2152",
+    "type": "expenses",
+    "amount": 2366,
+    "categoryId": "1009",
+    "date": "2026-11-05",
+    "description": "Taxi"
+  },
+  {
+    "id": "2146",
+    "type": "expenses",
+    "amount": 6518,
+    "categoryId": "1006",
+    "date": "2026-11-06",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2153",
+    "type": "expenses",
+    "amount": 2214,
+    "categoryId": "1009",
+    "date": "2026-11-08",
+    "description": "Taxi"
+  },
+  {
+    "id": "2147",
+    "type": "expenses",
+    "amount": 6869,
+    "categoryId": "1006",
+    "date": "2026-11-09",
+    "description": "Weekly shopping"
+  },
+  {
+    "id": "2159",
+    "type": "expenses",
+    "amount": 6156,
+    "categoryId": "1007",
+    "date": "2026-11-10",
+    "description": "Pharmacy"
+  },
+  {
+    "id": "2160",
+    "type": "expenses",
+    "amount": 5755,
+    "categoryId": "1011",
+    "date": "2026-11-10",
+    "description": "Personal purchase"
+  },
+  {
+    "id": "2148",
+    "type": "expenses",
+    "amount": 6888,
+    "categoryId": "1006",
+    "date": "2026-11-12",
+    "description": "Supermarket"
+  },
+  {
+    "id": "2154",
+    "type": "expenses",
+    "amount": 1562,
+    "categoryId": "1009",
+    "date": "2026-11-12",
+    "description": "Taxi"
+  },
+  {
+    "id": "2156",
+    "type": "expenses",
+    "amount": 1664,
+    "categoryId": "1010",
+    "date": "2026-11-15",
+    "description": "Cafe"
+  },
+  {
+    "id": "2158",
+    "type": "expenses",
+    "amount": 6063,
+    "categoryId": "1008",
+    "date": "2026-11-16",
+    "description": "Cinema"
+  },
+  {
+    "id": "2149",
+    "type": "expenses",
+    "amount": 2318,
+    "categoryId": "1006",
+    "date": "2026-11-18",
+    "description": "Groceries"
+  },
+  {
+    "id": "2157",
+    "type": "expenses",
+    "amount": 1636,
+    "categoryId": "1010",
+    "date": "2026-11-18",
+    "description": "Cafe"
+  },
+  {
+    "id": "2150",
+    "type": "expenses",
+    "amount": 3178,
+    "categoryId": "1006",
+    "date": "2026-11-19",
+    "description": "Market"
+  },
+  {
+    "id": "2161",
+    "type": "income",
+    "amount": 72110,
+    "categoryId": "1002",
+    "date": "2026-11-19",
+    "description": "Design work"
+  },
+  {
+    "id": "2151",
+    "type": "expenses",
+    "amount": 5895,
+    "categoryId": "1006",
+    "date": "2026-11-21",
+    "description": "Supermarket"
+  }
+]
