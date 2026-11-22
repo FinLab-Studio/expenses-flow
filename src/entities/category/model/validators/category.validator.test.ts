@@ -31,7 +31,7 @@ describe('isCategory', () => {
     expect(isCategory(category)).toBe(false);
   });
 
-  it('should return false when required fields are missing', () => {
+  it('should return false when id is missing', () => {
     const category = {
       name: 'Salary',
       color: 'green',
@@ -41,7 +41,7 @@ describe('isCategory', () => {
     expect(isCategory(category)).toBe(false);
   });
 
-  it('should return false when required fields are missing', () => {
+  it('should return false when name is missing', () => {
     const category = {
       id: '1001',
       color: 'green',
@@ -51,7 +51,7 @@ describe('isCategory', () => {
     expect(isCategory(category)).toBe(false);
   });
 
-  it('should return false when required fields are missing', () => {
+  it('should return false when color is missing', () => {
     const category = {
       id: '1001',
       name: 'Salary',
@@ -61,7 +61,7 @@ describe('isCategory', () => {
     expect(isCategory(category)).toBe(false);
   });
 
-  it('should return false when required fields are missing', () => {
+  it('should return false when icon is missing', () => {
     const category = {
       id: '1001',
       name: 'Salary',

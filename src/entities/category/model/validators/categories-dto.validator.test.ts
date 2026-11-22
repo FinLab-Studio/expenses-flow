@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { isCategoriesDTO } from './categories-dto.validator';
 
-describe('isCategoriesDto', () => {
+describe('isCategoriesDTO', () => {
   it('should return true for a valid categories DTO', () => {
     const categories = {
       income: [
