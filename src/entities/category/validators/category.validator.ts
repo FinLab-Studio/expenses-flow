@@ -1,7 +1,7 @@
 import { isNonEmptyString } from '@/shared/lib/money/is-non-empty-string';
-import type { Category } from '../category.interface';
-import { CATEGORY_COLORS, type CategoryColor } from '../config/category-colors';
-import { CATEGORY_ICONS, type CategoryIcon } from '../config/category-icons';
+import type { Category } from '../model/category.interface';
+import { CATEGORY_COLORS, type CategoryColor } from '../model/config/category-colors';
+import { CATEGORY_ICONS, type CategoryIcon } from '../model/config/category-icons';
 
 function isCategoryColor(value: unknown): value is CategoryColor {
   return typeof value === 'string' && Object.hasOwn(CATEGORY_COLORS, value);
