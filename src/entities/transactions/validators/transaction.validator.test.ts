@@ -121,4 +121,13 @@ describe('isTransaction', () => {
   it('should return false for a primitive', () => {
     expect(isTransaction('transaction')).toBe(false);
   });
+
+  it('should reject a transaction with an invalid date format', () => {
+    const transaction = {
+      ...validTransaction,
+      date: 'yesterday',
+    };
+
+    expect(isTransaction(transaction)).toBe(false);
+  });
 });

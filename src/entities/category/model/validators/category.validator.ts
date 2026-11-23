@@ -1,4 +1,4 @@
-import { isNonEmptyString } from '@/shared/utils/is-non-empty-string';
+import { isNonEmptyString } from '@/shared/lib/money/is-non-empty-string';
 import type { Category } from '../category.interface';
 import { CATEGORY_COLORS, type CategoryColor } from '../config/category-colors';
 import { CATEGORY_ICONS, type CategoryIcon } from '../config/category-icons';
