@@ -1,4 +1,4 @@
-import type { TransactionType } from '../../../shared/types/transaction-type.type';
+import type { TransactionType } from '@/shared/types/transaction-type.type';
 
 export interface Transaction {
   id: string;
