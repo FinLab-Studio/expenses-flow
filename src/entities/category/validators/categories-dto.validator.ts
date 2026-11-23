@@ -1,5 +1,5 @@
-import type { CategoriesDTO } from '../categories.dto';
-import type { Category } from '../category.interface';
+import type { CategoriesDTO } from '../model/categories.dto';
+import type { Category } from '../model/category.interface';
 import { isCategory } from './category.validator';
 
 function isCategoryArray(value: unknown): value is Category[] {
