@@ -1,6 +1,8 @@
 export interface CreateElementOptions {
   classNames?: string;
   textContent?: string;
+  // Boolean values are intended for boolean HTML attributes only.
+  // Pass ARIA boolean values as strings (e.g. String(isActive)).
   attributes?: Record<string, string | boolean>;
   children?: readonly Node[];
 }
