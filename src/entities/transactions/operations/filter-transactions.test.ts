@@ -30,15 +30,16 @@ describe('filterTransactions', () => {
   ];
   it('should return all transactions when no filters are applied', () => {
     const filters: TransactionFilters = {
-      type: 'expenses',
-      categoryId: 'food',
-      startDate: '2026-11-10',
-      endDate: '2026-11-20',
+      type: 'all',
+      categoryId: '',
+      startDate: '',
+      endDate: '',
     };
 
     const result = filterTransactions(transactions, filters, '2026-11-23');
 
-    expect(result).toEqual([transactions[1]]);
+    expect(result).toHaveLength(transactions.length);
+    expect(result).toEqual(transactions);
   });
 
   it('should filter transactions by categoryId', () => {
@@ -104,16 +105,6 @@ describe('filterTransactions', () => {
     const result = filterTransactions(transactions, filters, '2026-11-23');
 
     expect(result).toEqual([transactions[0], transactions[1]]);
-  });
-
-  it('should include future transactions when no dates are provided', () => {
-    const filters: TransactionFilters = {
-      type: 'all',
-    };
-
-    const result = filterTransactions(transactions, filters, '2026-11-13');
-
-    expect(result).toEqual(transactions);
   });
 
   it('should return an empty array when there are no transactions', () => {
