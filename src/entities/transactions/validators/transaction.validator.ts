@@ -1,7 +1,7 @@
 import type { Transaction } from '@/entities/transactions/model/transaction.interface';
 import { MAX_AMOUNT_CENTS } from '@/shared/lib/money';
 import type { TransactionType } from '@/shared/types/transaction-type.type';
-import { isNonEmptyString } from '@/shared/lib/money/is-non-empty-string';
+import { isNonEmptyString } from '@/shared/lib/string/is-non-empty-string';
 
 function isTransactionType(value: unknown): value is TransactionType {
   return value === 'income' || value === 'expenses';
