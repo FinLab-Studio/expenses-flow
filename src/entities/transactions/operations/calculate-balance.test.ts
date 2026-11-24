@@ -135,7 +135,7 @@ describe('calculateBalance', () => {
       {
         id: '4',
         type: 'expenses',
-        amount: 30_000,
+        amount: 20_000,
         categoryId: 'transport',
         date: '2026-11-20',
       },
@@ -155,8 +155,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 100_000,
-      periodChange: 0,
-      closingBalance: 100_000,
+      periodChange: 10_000,
+      closingBalance: 110_000,
     });
   });
 
