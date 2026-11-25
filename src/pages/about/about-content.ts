@@ -23,3 +23,41 @@ export const FEATURES: Feature[] = [
     icon: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />',
   },
 ];
+
+export interface TeamMember {
+  name: string;
+  github: string; // GitHub login
+  contributions: string[]; // updated before the release
+}
+
+export const TEAM: TeamMember[] = [
+  {
+    name: 'Alena',
+    github: 'AlenaVP',
+    contributions: [
+      'Project setup: Vite, TypeScript, Vitest, ESLint, Prettier, CI',
+      'App shell, router and this About page',
+      'Transaction form and amount validation',
+      'Monthly budget and currency settings',
+    ],
+  },
+  {
+    name: 'Evgenia',
+    github: 'evgeniia-korolova',
+    contributions: [
+      'GitHub organization, repository and task board',
+      'Transaction history and filters',
+      'Dashboard cards and balance',
+      'Charts, month comparison and demo data',
+    ],
+  },
+];
+
+export const PROCESS: string[] = [
+  'GitHub Projects board',
+  'Feature branches and squash PRs into dev',
+  'Code review for every PR',
+  'CI: lint, types, tests, build',
+  'Daily sync at 20:00',
+  'TypeScript · Vite · Vitest · SCSS',
+];

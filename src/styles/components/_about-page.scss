@@ -202,3 +202,82 @@
   line-height: 1.55;
   color: var(--color-text-muted);
 }
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.member-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.member-card__header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.member-card__avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-text);
+  background-color: var(--color-primary-soft);
+  border-radius: 50%;
+}
+
+// The second member gets the green avatar, as in the design.
+.member-card:nth-child(2) .member-card__avatar {
+  color: var(--color-success-text);
+  background-color: var(--color-success-soft);
+}
+
+.member-card__name {
+  font-size: 1.0625rem; // 17px
+}
+
+.member-card__contributions {
+  padding-left: var(--space-5);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+// How we work: a small title above the chips.
+.process {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--font-size-sm);
+}
+
+.process__title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.process__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.process__item {
+  padding: 6px var(--space-3);
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}

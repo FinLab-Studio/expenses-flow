@@ -1,13 +1,13 @@
 import { createElement } from '@/shared/lib/dom/create-element';
 import { formatMoney, formatSignedMoney } from '@/shared/lib/money';
 import type { RenderPage } from '@/shared/types/render-page.type';
-import { FEATURES, type Feature } from './about-content';
+import { FEATURES, PROCESS, TEAM, type Feature, type TeamMember } from './about-content';
 
 // About is the start page: what FinLab does and who made it.
 // No page header here: the hero takes its place (the page title is the hero h1).
 export const renderAboutPage: RenderPage = (container) => {
   container.classList.add('about-page');
-  container.append(createHero(), createFeatures());
+  container.append(createHero(), createFeatures(), createTeam(), createProcess());
 };
 
 function createHero(): HTMLElement {
@@ -105,6 +105,73 @@ function createFeatureCard({ title, text, icon }: Feature): HTMLElement {
       createIcon(icon),
       createElement('h3', { classNames: 'feature-card__title', textContent: title }),
       createElement('p', { classNames: 'feature-card__text', textContent: text }),
+    ],
+  });
+}
+
+function createTeam(): HTMLElement {
+  return createElement('section', {
+    classNames: 'about-section',
+    children: [
+      createElement('h2', { classNames: 'about-section__title', textContent: 'Team' }),
+      createElement('ul', {
+        classNames: 'team',
+        attributes: { role: 'list' },
+        children: TEAM.map(createMemberCard),
+      }),
+    ],
+  });
+}
+
+function createMemberCard({ name, github, contributions }: TeamMember): HTMLElement {
+  // The visible text is "@login"; the hidden prefix tells screen reader users where the link goes.
+  const profileLink = createElement('a', {
+    classNames: 'member-card__github',
+    attributes: { href: `https://github.com/${github}` },
+    children: [
+      createElement('span', { classNames: 'visually-hidden', textContent: 'GitHub profile ' }),
+      document.createTextNode(`@${github}`),
+    ],
+  });
+
+  const header = createElement('div', {
+    classNames: 'member-card__header',
+    children: [
+      // The initial repeats the name: hidden from screen readers.
+      createElement('span', {
+        classNames: 'member-card__avatar',
+        textContent: name.charAt(0),
+        attributes: { 'aria-hidden': 'true' },
+      }),
+      createElement('div', {
+        children: [
+          createElement('h3', { classNames: 'member-card__name', textContent: name }),
+          profileLink,
+        ],
+      }),
+    ],
+  });
+
+  const list = createElement('ul', {
+    classNames: 'member-card__contributions',
+    children: contributions.map((item) => createElement('li', { textContent: item })),
+  });
+
+  return createElement('li', { classNames: 'member-card', children: [header, list] });
+}
+
+function createProcess(): HTMLElement {
+  return createElement('section', {
+    classNames: 'process',
+    children: [
+      createElement('h2', { classNames: 'process__title', textContent: 'How we work' }),
+      createElement('ul', {
+        classNames: 'process__list',
+        attributes: { role: 'list' },
+        children: PROCESS.map((item) =>
+          createElement('li', { classNames: 'process__item', textContent: item }),
+        ),
+      }),
     ],
   });
 }
