@@ -2,6 +2,9 @@
 @use 'reset';
 @use 'base';
 
+@use 'components/app-shell';
+@use 'components/page-header';
+
 @use 'pages/transactions-page';
 
 @use 'components/dropdown';

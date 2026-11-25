@@ -1,0 +1,119 @@
+// App shell (desktop): sidebar 232px + page. The phone layout (bottom menu) comes with the responsive task.
+
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100dvh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  height: 100dvh;
+  padding: var(--space-6) var(--space-4);
+  overflow-y: auto;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.sidebar__logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: var(--font-weight-semibold);
+
+  rect {
+    fill: var(--color-primary);
+  }
+
+  path {
+    fill: none;
+    stroke: var(--color-on-primary);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+.sidebar__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar__link {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  min-height: var(--size-touch);
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+
+  svg {
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+
+  &[aria-current='page'] {
+    color: var(--color-primary-text);
+    background-color: var(--color-primary-soft);
+  }
+}
+
+// The theme switcher goes here, above the note.
+.sidebar__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+
+.sidebar__note {
+  padding: 0 6px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.app-main {
+  padding: var(--space-8) var(--space-10) var(--space-12);
+
+  // Focus lands here after navigation (tabindex="-1") so screen readers start at the new page;
+  // the element is not interactive, so no focus ring around the whole page.
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+// The root the router creates for every page: blocks of the page stack with a gap.
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.page-error {
+  padding: var(--space-5);
+  color: var(--color-expense);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
