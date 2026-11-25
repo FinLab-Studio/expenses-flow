@@ -2,6 +2,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { RenderPage } from '@/shared/types/render-page.type';
 import { LOAD_ERROR_MESSAGE, type Route, type Router, createRouter } from './router';
+import { ABOUT_PAGE, DASHBOARD_PAGE } from '../path-names';
 
 // hashchange is delivered after the current task, like in a browser: wait one macrotask
 const tick = () => new Promise((resolve) => setTimeout(resolve, 0));
@@ -18,8 +19,8 @@ function setup(hash: string, aboutRender: RenderPage = showText('About page')) {
   history.replaceState(null, '', hash || '/');
 
   const routes: Route[] = [
-    { path: 'about', title: 'About', render: aboutRender },
-    { path: 'dashboard', title: 'Dashboard', render: showText('Dashboard page') },
+    { path: ABOUT_PAGE, title: 'About', render: aboutRender },
+    { path: DASHBOARD_PAGE, title: 'Dashboard', render: showText('Dashboard page') },
   ];
   const outlet = document.createElement('main');
   outlet.tabIndex = -1;
@@ -62,8 +63,8 @@ describe('createRouter', () => {
     const { router, outlet } = setup('#/about');
     const leaveAbout = vi.fn();
     const leaveDashboard = vi.fn();
-    router.onLeave('about', leaveAbout);
-    router.onLeave('dashboard', leaveDashboard);
+    router.onLeave(ABOUT_PAGE, leaveAbout);
+    router.onLeave(DASHBOARD_PAGE, leaveDashboard);
     router.start();
 
     location.hash = '#/dashboard';
@@ -78,7 +79,7 @@ describe('createRouter', () => {
     const render = vi.fn();
     const { router } = setup('#/about', render);
     const leaveAbout = vi.fn();
-    router.onLeave('about', leaveAbout);
+    router.onLeave(ABOUT_PAGE, leaveAbout);
     router.start();
 
     location.hash = '#/unknown';
