@@ -1,0 +1,118 @@
+@use '../mixins' as mx;
+
+.transaction-filters {
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+    padding-block: 1rem;
+  }
+
+  &__dates,
+  &__type,
+  &__category {
+    min-width: 0;
+  }
+
+  &__type,
+  &__category {
+    flex: 0 0 auto;
+  }
+
+  &__date-fields {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__date-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 170px;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  &__date-field:hover {
+    border-color: var(--color-primary);
+  }
+
+  &__date-field:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__date-trigger {
+    display: none;
+  }
+}
+
+.transaction-filters__date-apply {
+  display: none;
+}
+
+@include mx.down(md) {
+  .transaction-filters__date-fields {
+    display: none;
+  }
+
+  .transaction-filters__date-trigger {
+    display: flex;
+  }
+
+  .transaction-filters__date-calendar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .transaction-filters__date-calendar-item {
+    min-width: 0;
+  }
+
+  .transaction-filters__date-apply {
+    display: block;
+  }
+
+  .transaction-filters__date-apply {
+    display: none;
+  }
+
+  .transaction-filters__dates--range-open {
+    .transaction-filters__date-apply {
+      display: block;
+    }
+  }
+
+  .transaction-filters__content {
+    align-items: center;
+  }
+
+  .transaction-filters__type .transaction-filters__label,
+  .transaction-filters__category .transaction-filters__label {
+    display: none;
+  }
+}
+
+@media (width <= 600px) {
+  .transaction-filters__date-calendar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

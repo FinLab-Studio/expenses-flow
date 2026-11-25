@@ -1,0 +1,87 @@
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 280px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: #fff;
+
+  &__year,
+  &__month,
+  &__navigation {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  &__year,
+  &__month {
+    padding: 4px 8px;
+    font-weight: 600;
+  }
+
+  &__navigation {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 24px;
+
+    &:hover {
+      background-color: var(--color-border);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  &__weekday,
+  &__day,
+  &__option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 36px;
+  }
+
+  &__weekday {
+    color: var(--color-text-muted);
+    font-size: 12px;
+  }
+
+  &__day,
+  &__option {
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+
+    &:hover {
+      background-color: var(--color-border);
+    }
+
+    &--selected {
+      color: #fff;
+      background-color: var(--color-primary);
+    }
+  }
+
+  &__day--empty {
+    pointer-events: none;
+  }
+
+  &__option {
+    padding: 6px;
+  }
+
+  &__grid:has(.date-picker__option) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
