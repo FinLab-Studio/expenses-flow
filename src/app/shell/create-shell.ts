@@ -30,7 +30,7 @@ export function createShell(links: NavLink[]): Shell {
       <p class="sidebar__note">Your data stays in this browser. No sign-up needed.</p>
     </div>`;
 
-  const outlet = createElement('main', { classNames: 'app-shell' });
+  const outlet = createElement('main', { classNames: 'app-main' });
   outlet.id = 'main';
   outlet.tabIndex = -1;
 
