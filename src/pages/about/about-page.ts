@@ -1,12 +1,13 @@
 import { createElement } from '@/shared/lib/dom/create-element';
 import { formatMoney, formatSignedMoney } from '@/shared/lib/money';
 import type { RenderPage } from '@/shared/types/render-page.type';
+import { FEATURES, type Feature } from './about-content';
 
 // About is the start page: what FinLab does and who made it.
 // No page header here: the hero takes its place (the page title is the hero h1).
 export const renderAboutPage: RenderPage = (container) => {
   container.classList.add('about-page');
-  container.append(createHero());
+  container.append(createHero(), createFeatures());
 };
 
 function createHero(): HTMLElement {
@@ -82,7 +83,45 @@ function createBudgetPreview(): HTMLElement {
   return preview;
 }
 
+function createFeatures(): HTMLElement {
+  return createElement('section', {
+    classNames: 'about-section',
+    children: [
+      createElement('h2', { classNames: 'about-section__title', textContent: 'What you can do' }),
+      // role="list": Safari drops list semantics when list-style is none
+      createElement('ul', {
+        classNames: 'features',
+        attributes: { role: 'list' },
+        children: FEATURES.map(createFeatureCard),
+      }),
+    ],
+  });
+}
+
+function createFeatureCard({ title, text, icon }: Feature): HTMLElement {
+  return createElement('li', {
+    classNames: 'feature-card',
+    children: [
+      createIcon(icon),
+      createElement('h3', { classNames: 'feature-card__title', textContent: title }),
+      createElement('p', { classNames: 'feature-card__text', textContent: text }),
+    ],
+  });
+}
+
 // Navigation is a link, not a <button>: it changes the address and works with "open in new tab".
 function createLink(text: string, href: string, classNames: string): HTMLAnchorElement {
   return createElement('a', { classNames, textContent: text, attributes: { href } });
+}
+
+// createElement can't make SVG, so the icon is static markup from about-content.ts.
+// Decorative: the card title already says what it is.
+function createIcon(paths: string): HTMLElement {
+  const icon = createElement('span', {
+    classNames: 'feature-card__icon',
+    attributes: { 'aria-hidden': 'true' },
+  });
+  icon.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24">${paths}</svg>`;
+
+  return icon;
 }
