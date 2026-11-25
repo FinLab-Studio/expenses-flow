@@ -1,0 +1,56 @@
+// About page (desktop): hero, feature cards, team. The phone layout comes with the responsive task.
+
+// The router's .page root: About sections are further apart than blocks on other pages.
+.about-page {
+  gap: var(--space-10);
+}
+
+// Hero: text on the left; a second child (if any) takes the right half.
+.hero {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--space-10);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+
+  > * {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.hero__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hero__badge {
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-primary-text);
+  background-color: var(--color-primary-soft);
+  border-radius: var(--radius-pill);
+}
+
+.hero__title {
+  font-size: 2.75rem; // 44px: the hero title is larger than other page titles
+  line-height: 1.1;
+}
+
+.hero__description {
+  max-width: 60ch; // keeps lines readable when the hero has one column
+  font-size: 1.0625rem; // 17px
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: 6px;
+}
