@@ -2,6 +2,8 @@ import { createElement } from '@/shared/lib/dom/create-element';
 import { createTransactionFilters } from '@/features/transaction-filters/ui/transaction-filters';
 import { categoryRepository } from '@/entities/category/api/category-repository';
 import { getInitialFiltersState } from '@/features/transaction-filters';
+import { transactionRepository } from '@/entities/transactions/api/transaction-repository';
+import { createTransactionList } from '@/widgets/transactions-list/ui/transaction-list';
 
 function createPageHeader(): HTMLElement {
   const title = createElement('h1', {
@@ -31,12 +33,27 @@ function createPageHeader(): HTMLElement {
   });
 }
 
-export async function createTransactionsPage(): Promise<HTMLElement> {
-  const categories = await categoryRepository.getAll();
+export async function createTransactionsPageLayout(): Promise<HTMLElement> {
+  const [categories, transactions] = await Promise.all([
+    categoryRepository.getAll(),
+    transactionRepository.getAll(),
+  ]);
+
+  const allCategories = [...categories.income, ...categories.expenses];
+
   const filtersState = getInitialFiltersState();
+
+  const transactionList = createTransactionList({
+    transactions,
+    categories: allCategories,
+  });
 
   return createElement('main', {
     classNames: 'transactions-page',
-    children: [createPageHeader(), createTransactionFilters(categories, filtersState)],
+    children: [
+      createPageHeader(),
+      createTransactionFilters(categories, filtersState),
+      transactionList,
+    ],
   });
 }

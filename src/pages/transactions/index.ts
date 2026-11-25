@@ -1,1 +1,1 @@
-export { createTransactionsPage } from './ui/transactions-page';
+export { createTransactionsPageLayout } from './ui/transactions-page-layout';
