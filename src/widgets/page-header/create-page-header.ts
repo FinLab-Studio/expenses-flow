@@ -1,3 +1,6 @@
+import { settingsRepository } from '@/entities/settings/api/settings-repository';
+import { DEFAULT_SETTINGS } from '@/entities/settings/model/default-settings';
+import { createCurrencyChip } from '@/entities/settings/ui/create-currency-chip';
 import { createElement } from '@/shared/lib/dom/create-element';
 
 export interface PageHeaderOptions {
@@ -22,7 +25,7 @@ export function createPageHeader({
     ],
   });
 
-  const parts = [controls, createCurrencyChip(), action].filter((part) => part !== undefined);
+  const parts = [controls, createSavedCurrencyChip(), action].filter((part) => part !== undefined);
 
   return createElement('header', {
     classNames: 'page-header',
@@ -30,15 +33,15 @@ export function createPageHeader({
   });
 }
 
-// The place for the currency chip. Static EUR (the default currency) until the currency
-// settings task: then it shows Settings.currency, and pages do not change.
-function createCurrencyChip(): HTMLElement {
-  return createElement('span', {
-    classNames: 'currency-chip',
-    attributes: { title: 'All amounts are in EUR' },
-    children: [
-      createElement('span', { classNames: 'visually-hidden', textContent: 'Currency: ' }),
-      document.createTextNode('EUR'),
-    ],
+// The header is synchronous and the repository is not, so pages don't have to change:
+// the chip starts with the default currency and is replaced with the saved one once
+// Settings load. With localStorage that happens before the first paint (no flicker).
+function createSavedCurrencyChip(): HTMLElement {
+  const chip = createCurrencyChip(DEFAULT_SETTINGS.currency);
+
+  void settingsRepository.get().then(({ currency }) => {
+    chip.replaceWith(createCurrencyChip(currency));
   });
+
+  return chip;
 }
