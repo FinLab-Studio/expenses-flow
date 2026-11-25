@@ -1,7 +1,7 @@
 import { transactionRepository } from '@/entities/transactions/api/transaction-repository';
 import { createElement } from '@/shared/lib/dom/create-element';
 import type { RenderPage } from '@/shared/types/render-page.type';
-import { createPageHeader } from '@/widgets/page-header/create-page-header';
+import { createPageHeader } from '@/widgets/page-header';
 
 // Placeholder: the Transactions page comes in its own task.
 // It already shows the pattern: header first, then await the data, then draw the rest.

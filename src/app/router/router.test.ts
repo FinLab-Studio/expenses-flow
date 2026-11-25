@@ -45,11 +45,11 @@ describe('createRouter', () => {
     router.start();
 
     expect(outlet.textContent).toBe('About page');
-    expect(location.hash).toBe('#/about');
+    expect(location.hash).toBe(`#/${ABOUT_PAGE}`);
   });
 
   it('opens the page from the hash, sets the title, reports the route and focuses the outlet', () => {
-    const { router, routes, outlet, onNavigate } = setup('#/dashboard');
+    const { router, routes, outlet, onNavigate } = setup(`#/${DASHBOARD_PAGE}`);
 
     router.start();
 
@@ -60,14 +60,14 @@ describe('createRouter', () => {
   });
 
   it('replaces the page on hash change and runs the leave handlers of the page left', async () => {
-    const { router, outlet } = setup('#/about');
+    const { router, outlet } = setup(`#/${ABOUT_PAGE}`);
     const leaveAbout = vi.fn();
     const leaveDashboard = vi.fn();
     router.onLeave(ABOUT_PAGE, leaveAbout);
     router.onLeave(DASHBOARD_PAGE, leaveDashboard);
     router.start();
 
-    location.hash = '#/dashboard';
+    location.hash = `#/${DASHBOARD_PAGE}`;
     await tick();
 
     expect(outlet.textContent).toBe('Dashboard page');
@@ -77,7 +77,7 @@ describe('createRouter', () => {
 
   it('stays on the page when the new hash leads to the same route', async () => {
     const render = vi.fn();
-    const { router } = setup('#/about', render);
+    const { router } = setup(`#/${ABOUT_PAGE}`, render);
     const leaveAbout = vi.fn();
     router.onLeave(ABOUT_PAGE, leaveAbout);
     router.start();
@@ -91,10 +91,10 @@ describe('createRouter', () => {
 
   it('calls the cleanup returned by the page when the user leaves it', async () => {
     const cleanup = vi.fn();
-    const { router } = setup('#/about', () => cleanup);
+    const { router } = setup(`#/${ABOUT_PAGE}`, () => cleanup);
     router.start();
 
-    location.hash = '#/dashboard';
+    location.hash = `#/${DASHBOARD_PAGE}`;
     await tick();
 
     expect(cleanup).toHaveBeenCalledOnce();
@@ -102,7 +102,7 @@ describe('createRouter', () => {
 
   it('shows an error message when the page fails to load', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => {});
-    const { router, outlet } = setup('#/about', () =>
+    const { router, outlet } = setup(`#/${ABOUT_PAGE}`, () =>
       Promise.reject(new Error('Storage is broken')),
     );
 
@@ -117,12 +117,12 @@ describe('createRouter', () => {
     const cleanup = vi.fn();
     let finishLoading = () => {};
     const { router } = setup(
-      '#/about',
+      `#/${ABOUT_PAGE}`,
       () => new Promise((resolve) => (finishLoading = () => resolve(cleanup))),
     );
     router.start();
 
-    location.hash = '#/dashboard';
+    location.hash = `#/${DASHBOARD_PAGE}`;
     await tick();
     finishLoading();
     await tick();

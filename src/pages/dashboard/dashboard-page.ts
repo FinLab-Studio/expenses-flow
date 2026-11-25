@@ -1,5 +1,5 @@
 import type { RenderPage } from '@/shared/types/render-page.type';
-import { createPageHeader } from '@/widgets/page-header/create-page-header';
+import { createPageHeader } from '@/widgets/page-header';
 
 // Placeholder: the Dashboard comes in its own task.
 export const renderDashboardPage: RenderPage = (container) => {

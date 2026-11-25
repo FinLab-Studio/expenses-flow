@@ -32,7 +32,7 @@ export function createShell(links: NavLink[]): Shell {
 
   const outlet = createElement('main', { classNames: 'app-main' });
   outlet.id = 'main';
-  outlet.tabIndex = -1;
+  outlet.tabIndex = -1; // the router moves focus here after navigation
 
   const element = createElement('div', {
     classNames: 'app-shell',
@@ -54,7 +54,7 @@ export function createShell(links: NavLink[]): Shell {
   };
 }
 
-function renderLink({ path, title, icon }: NavLink) {
+function renderLink({ path, title, icon }: NavLink): string {
   const svg = `<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">${icon}</svg>`;
 
   return `<li><a class="sidebar__link" href="#/${path}">${svg}${title}</a></li>`;
