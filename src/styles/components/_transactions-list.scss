@@ -115,3 +115,9 @@
     }
   }
 }
+
+.transaction-list__empty {
+  padding: var(--space-8);
+  text-align: center;
+  color: var(--text-secondary);
+}

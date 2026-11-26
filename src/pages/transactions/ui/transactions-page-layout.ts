@@ -1,10 +1,11 @@
 import { createElement } from '@/shared/lib/dom/create-element';
-import { createTransactionFilters } from '@/features/transaction-filters/ui/transaction-filters';
 import { categoryRepository } from '@/entities/category/api/category-repository';
 import { getInitialFiltersState } from '@/features/transaction-filters';
 import { transactionRepository } from '@/entities/transactions/api/transaction-repository';
 import { createTransactionList } from '@/widgets/transactions-list/ui/transaction-list';
 import { filterTransactions } from '@/entities/transactions/operations/filter-transactions';
+import { searchTransactions } from '@/entities/transactions/operations/search-transactions';
+import { createTransactionControls } from '@/widgets/transaction-controls';
 
 function createPageHeader(): HTMLElement {
   const title = createElement('h1', {
@@ -34,31 +35,6 @@ function createPageHeader(): HTMLElement {
   });
 }
 
-// export async function createTransactionsPageLayout(): Promise<HTMLElement> {
-//   const [categories, transactions] = await Promise.all([
-//     categoryRepository.getAll(),
-//     transactionRepository.getAll(),
-//   ]);
-
-//   const allCategories = [...categories.income, ...categories.expenses];
-
-//   const filtersState = getInitialFiltersState();
-
-//   const transactionList = createTransactionList({
-//     transactions,
-//     categories: allCategories,
-//   });
-
-//   return createElement('main', {
-//     classNames: 'transactions-page',
-//     children: [
-//       createPageHeader(),
-//       createTransactionFilters(categories, filtersState),
-//       //transactionList,
-//     ],
-//   });
-// }
-
 export async function createTransactionsPageLayout(): Promise<HTMLElement> {
   const [categories, transactions] = await Promise.all([
     categoryRepository.getAll(),
@@ -67,30 +43,30 @@ export async function createTransactionsPageLayout(): Promise<HTMLElement> {
 
   const allCategories = [...categories.income, ...categories.expenses];
 
-  let filtersState = getInitialFiltersState();
+  const initialFiltersState = getInitialFiltersState();
   const today = Temporal.Now.plainDateISO().toString();
 
-  const filteredTransactions = filterTransactions(transactions, filtersState, today);
+  const initialFilteredTransactions = filterTransactions(transactions, initialFiltersState, today);
 
   const transactionList = createTransactionList({
-    transactions: filteredTransactions,
+    transactions: initialFilteredTransactions,
     categories: allCategories,
   });
 
-  const transactionFilters = createTransactionFilters({
+  const transactionControls = createTransactionControls({
     categories,
-    state: filtersState,
-    onChange: (nextState) => {
-      filtersState = nextState;
+    initialState: initialFiltersState,
+    onChange: (filtersState, searchTerm) => {
+      const filteredByFilters = filterTransactions(transactions, filtersState, today);
 
-      const filtered = filterTransactions(transactions, filtersState, today);
+      const filteredBySearch = searchTransactions(filteredByFilters, searchTerm);
 
-      transactionList.update(filtered);
+      transactionList.update(filteredBySearch);
     },
   });
 
   return createElement('main', {
     classNames: 'transactions-page',
-    children: [createPageHeader(), transactionFilters, transactionList.element],
+    children: [createPageHeader(), transactionControls, transactionList.element],
   });
 }

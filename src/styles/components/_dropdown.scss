@@ -11,14 +11,35 @@
     gap: 12px;
     width: 100%;
     padding: 10px 12px;
-    border: 0;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     background-color: var(--color-surface);
-    color: inherit;
+    color: var(--color-text);
     font: inherit;
     font-size: 14px;
     text-align: left;
     cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    &::after {
+      content: '';
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+
+    &[aria-expanded='true']::after {
+      transform: rotate(225deg);
+    }
   }
 
   &__menu {
@@ -89,4 +110,10 @@
 
 .dropdown__menu button:hover {
   background-color: var(--color-primary-soft);
+}
+
+@media (hover: hover) {
+  .dropdown__trigger:hover {
+    border-color: var(--color-primary);
+  }
 }

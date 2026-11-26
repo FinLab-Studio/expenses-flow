@@ -19,6 +19,16 @@ export function createTransactionList({
   });
 
   function update(transactions: readonly Transaction[]): void {
+    if (transactions.length === 0) {
+      const emptyState = createElement('li', {
+        classNames: 'transaction-list__empty',
+        textContent: 'No transactions found.',
+      });
+
+      element.replaceChildren(emptyState);
+      return;
+    }
+
     const items = transactions.map((transaction) => {
       const category = categoryMap.get(transaction.categoryId) ?? null;
 
