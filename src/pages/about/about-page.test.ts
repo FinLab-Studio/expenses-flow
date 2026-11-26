@@ -1,9 +1,13 @@
 // @vitest-environment happy-dom
 
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { renderAboutPage } from './about-page';
 
 describe('renderAboutPage', () => {
+  beforeEach(() => {
+    localStorage.clear(); // the page reads Settings
+  });
+
   it('renders one h1 and the hero links to the dashboard and transactions', async () => {
     const container = document.createElement('div');
 

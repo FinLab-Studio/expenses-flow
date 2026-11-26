@@ -15,16 +15,3 @@
   margin-top: var(--space-1);
   color: var(--color-text-muted);
 }
-
-.currency-chip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 0 14px;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary-text);
-  letter-spacing: 0.04em;
-  background-color: var(--color-primary-soft);
-  border-radius: var(--radius-pill);
-}

@@ -2,6 +2,8 @@ import 'temporal-polyfill/global';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/space-grotesk';
 import '@/styles/main.scss';
+import { lockCurrency } from '@/features/select-currency';
+import { ABOUT_PAGE } from './path-names';
 import { createShell } from './shell/create-shell';
 import { createRouter } from './router/router';
 import { routes } from './routes';
@@ -16,6 +18,11 @@ if (app) {
     routes,
     outlet: shell.outlet,
     onNavigate: (route) => shell.setActiveRoute(route.path),
+  });
+
+  // The currency is chosen on About: the first time the user leaves it, the choice is locked.
+  router.onLeave(ABOUT_PAGE, () => {
+    void lockCurrency();
   });
 
   router.start();

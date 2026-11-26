@@ -7,32 +7,20 @@ import { filterTransactions } from '@/entities/transactions/operations/filter-tr
 import { searchTransactions } from '@/entities/transactions/operations/search-transactions';
 import { createTransactionControls } from '@/widgets/transaction-controls';
 import { createBalanceSummary } from '@/widgets/balance-summary/ui/balance-summary';
+import { createPageHeader } from '@/widgets/page-header';
 
-function createPageHeader(): HTMLElement {
-  const title = createElement('h1', {
-    textContent: 'Transactions',
-  });
-
-  const description = createElement('p', {
-    textContent: 'History of your income and expenses.',
-  });
-
-  const heading = createElement('div', {
-    classNames: 'transactions-page__heading',
-    children: [title, description],
-  });
-
+// The shared page header: title · currency chip · main action, as on the other pages.
+function createHeader(): HTMLElement {
   const addButton = createElement('button', {
-    classNames: 'transactions-page__add-button',
+    classNames: 'button button--primary',
     textContent: 'Add transaction',
-    attributes: {
-      type: 'button',
-    },
+    attributes: { type: 'button' },
   });
 
-  return createElement('header', {
-    classNames: 'transactions-page__header',
-    children: [heading, addButton],
+  return createPageHeader({
+    title: 'Transactions',
+    subtitle: 'History of your income and expenses.',
+    action: addButton,
   });
 }
 
@@ -82,7 +70,7 @@ export async function createTransactionsPageLayout(): Promise<HTMLElement> {
   return createElement('div', {
     classNames: 'transactions-page',
     children: [
-      createPageHeader(),
+      createHeader(),
       transactionControls,
       balanceSummary.element,
       transactionList.element,
