@@ -3,6 +3,7 @@
 @use 'base';
 
 @use 'components/app-shell';
+@use 'components/button';
 @use 'components/page-header';
 
 @use 'pages/transactions-page';
@@ -13,3 +14,5 @@
 @use 'components/transactions-list.scss';
 @use 'components/transaction-search-field';
 @use 'components/balance-summary';
+
+@use 'components/about-page';
