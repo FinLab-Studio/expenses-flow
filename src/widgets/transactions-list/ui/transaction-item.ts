@@ -1,7 +1,8 @@
 import { createElement } from '@/shared/lib/dom/create-element';
 import type { TransactionItemOptions } from '../model/transaction-item-options.interface';
-import { createCategoryIcon } from '@/shared/components/category-icon/ui/category-icon';
+import { createCategoryIcon } from '@/entities/category/ui/category-icon/ui/category-icon';
 import { CATEGORY_COLORS } from '@/entities/category/model/config/category-colors';
+import { formatSignedMoney } from '@/shared/lib/money';
 
 export function createTransactionItem({
   transaction,
@@ -53,12 +54,13 @@ export function createTransactionItem({
     children: [description, categoryName],
   });
 
-  const sign = transaction.type === 'income' ? '+' : '-';
-  const formattedAmount = (transaction.amount / 100).toFixed(2);
+  const formattedAmount = formatSignedMoney(
+    transaction.type === 'income' ? transaction.amount : -transaction.amount,
+  );
 
   const amount = createElement('span', {
     classNames: 'transaction-item__amount',
-    textContent: `${sign}  ${formattedAmount}`,
+    textContent: formattedAmount,
   });
 
   const content = createElement('div', {

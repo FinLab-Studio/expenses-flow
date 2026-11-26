@@ -1,3 +1,5 @@
+@use '../mixins' as mx;
+
 .date-picker {
   display: flex;
   flex-direction: column;
@@ -115,4 +117,27 @@
 
 .transaction-filters__date-calendar-item--end .date-picker {
   right: 0;
+}
+
+@include mx.down(md) {
+  .transaction-filters__date-calendar-item {
+    display: flex;
+    position: static;
+  }
+
+  .transaction-filters__date-calendar-item[hidden] {
+    display: none;
+  }
+
+  .date-picker {
+    position: static;
+  }
+}
+
+// TODO check when menu will be collapsed
+
+@media (width < 740px) {
+  .transaction-filters__date-calendar-item {
+    flex-direction: column;
+  }
 }

@@ -48,7 +48,6 @@ export function createTransactionFilters({
       ...updates,
     };
 
-    //categoryFilter.update(filtersState);
     onChange(filtersState);
   });
 

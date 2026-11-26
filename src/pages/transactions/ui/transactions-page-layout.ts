@@ -79,7 +79,7 @@ export async function createTransactionsPageLayout(): Promise<HTMLElement> {
     },
   });
 
-  return createElement('main', {
+  return createElement('div', {
     classNames: 'transactions-page',
     children: [
       createPageHeader(),

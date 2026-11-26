@@ -34,6 +34,13 @@ export function createDropdown({
 
   let isOpen = false;
 
+  const closeDropdown = (): void => {
+    isOpen = false;
+
+    dropdown.classList.remove('dropdown--open');
+    trigger.setAttribute('aria-expanded', String(isOpen));
+  };
+
   trigger.addEventListener('click', () => {
     isOpen = !isOpen;
 
@@ -55,10 +62,26 @@ export function createDropdown({
     trigger.textContent = event.target.textContent;
     onSelect?.(selectedValue);
 
-    isOpen = false;
+    closeDropdown();
+  });
 
-    dropdown.classList.remove('dropdown--open');
-    trigger.setAttribute('aria-expanded', String(isOpen));
+  document.addEventListener('keydown', (event: KeyboardEvent) => {
+    if (event.key !== 'Escape' || !isOpen) {
+      return;
+    }
+
+    closeDropdown();
+    trigger.focus();
+  });
+
+  document.addEventListener('click', (event: MouseEvent) => {
+    if (!isOpen || !(event.target instanceof Node)) {
+      return;
+    }
+
+    if (!dropdown.contains(event.target)) {
+      closeDropdown();
+    }
   });
 
   return dropdown;
