@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Transaction } from '../model/transaction.interface';
-import { filterTransactions, type TransactionFilters } from './filter-transactions';
+import { filterTransactions } from './filter-transactions';
+import type { TransactionFilters } from '../model/transaction-filters.interface';
 
 describe('filterTransactions', () => {
   const transactions: Transaction[] = [
@@ -129,37 +130,4 @@ describe('filterTransactions', () => {
 
     expect(result).toEqual([transactions[1]]);
   });
-
-  // it('should apply search case-insensitively', () => {
-  //   const filters: TransactionFilters = {
-  //     type: 'all',
-  //     search: 'salary',
-  //   };
-
-  //   const result = filterTransactions(transactions, filters, '2026-11-23');
-
-  //   expect(result).toEqual([transactions[0]]);
-  // });
-
-  // it('should exclude transactions without description when search is applied', () => {
-  //   const filters: TransactionFilters = {
-  //     type: 'all',
-  //     search: 'salary',
-  //   };
-
-  //   const result = filterTransactions(transactions, filters, '2026-11-23');
-
-  //   expect(result).toEqual([transactions[0]]);
-  // });
-
-  // it('should return an empty array when search has no matches', () => {
-  //   const filters: TransactionFilters = {
-  //     type: 'all',
-  //     search: 'Cinema City',
-  //   };
-
-  //   const result = filterTransactions(transactions, filters, '2026-11-23');
-
-  //   expect(result).toEqual([]);
-  // });
 });

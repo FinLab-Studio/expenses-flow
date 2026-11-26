@@ -1,12 +1,5 @@
-import type { TransactionType } from '@/shared/types/transaction-type.type';
 import type { Transaction } from '../model/transaction.interface';
-
-export interface TransactionFilters {
-  startDate?: string;
-  endDate?: string;
-  categoryId?: string;
-  type: 'all' | TransactionType;
-}
+import type { TransactionFilters } from '../model/transaction-filters.interface';
 
 export function filterTransactions(
   transactions: readonly Transaction[],

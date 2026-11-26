@@ -9,6 +9,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 0,
+      periodExpenses: 0,
       periodChange: 0,
       closingBalance: 0,
     });
@@ -36,6 +38,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 150_000,
+      periodExpenses: 0,
       periodChange: 150_000,
       closingBalance: 150_000,
     });
@@ -63,6 +67,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 0,
+      periodExpenses: 50_000,
       periodChange: -50_000,
       closingBalance: -50_000,
     });
@@ -104,6 +110,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 150_000,
+      periodExpenses: 50_000,
       periodChange: 100_000,
       closingBalance: 100_000,
     });
@@ -155,6 +163,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 100_000,
+      periodIncome: 50_000,
+      periodExpenses: 40_000,
       periodChange: 10_000,
       closingBalance: 110_000,
     });
@@ -178,6 +188,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 100_000,
+      periodExpenses: 0,
       periodChange: 100_000,
       closingBalance: 100_000,
     });
@@ -201,6 +213,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 0,
+      periodExpenses: 25_000,
       periodChange: -25_000,
       closingBalance: -25_000,
     });
@@ -224,6 +238,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 100_000,
+      periodIncome: 0,
+      periodExpenses: 0,
       periodChange: 0,
       closingBalance: 100_000,
     });
@@ -247,6 +263,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 0,
+      periodExpenses: 0,
       periodChange: 0,
       closingBalance: 0,
     });
@@ -277,6 +295,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 100_000,
+      periodIncome: 0,
+      periodExpenses: 0,
       periodChange: 0,
       closingBalance: 100_000,
     });
@@ -300,6 +320,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 0,
+      periodIncome: 100_000,
+      periodExpenses: 0,
       periodChange: 100_000,
       closingBalance: 100_000,
     });
@@ -330,6 +352,8 @@ describe('calculateBalance', () => {
 
     expect(result).toEqual({
       openingBalance: 70_000,
+      periodIncome: 0,
+      periodExpenses: 0,
       periodChange: 0,
       closingBalance: 70_000,
     });
