@@ -1,0 +1,41 @@
+// Segmented control: options in a track, the chosen one is raised (currency on About;
+// also fits Expense / Income in the transaction form and the type filter).
+// Markup: .segmented > label.segmented__option > input[type='radio'].visually-hidden + text.
+// The hidden input keeps focus and the checked state; the label shows them with :has().
+
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+}
+
+.segmented__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+
+  &:hover {
+    color: var(--color-text);
+  }
+
+  &:has(:checked) {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+  }
+
+  // The same ring as :focus-visible in _base, moved from the hidden input to its label.
+  &:has(:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}

@@ -1,0 +1,18 @@
+// Currency select on About: "Your currency" · switcher (or the chip once locked) · hint.
+
+.currency-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: var(--space-1);
+}
+
+.currency-select__label {
+  color: var(--color-text-muted);
+}
+
+.currency-select__hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}

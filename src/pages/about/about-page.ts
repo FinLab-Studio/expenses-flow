@@ -1,16 +1,21 @@
+import { settingsRepository } from '@/entities/settings/api/settings-repository';
+import type { Settings } from '@/entities/settings/model/settings.interface';
+import { createCurrencySelect } from '@/features/select-currency';
 import { createElement } from '@/shared/lib/dom/create-element';
 import { formatMoney, formatSignedMoney } from '@/shared/lib/money';
 import type { RenderPage } from '@/shared/types/render-page.type';
 import { FEATURES, PROCESS, TEAM, type Feature, type TeamMember } from './about-content';
 
-// About is the start page: what FinLab does and who made it.
+// About is the start page: what FinLab does and who made it; the user picks the currency here.
 // No page header here: the hero takes its place (the page title is the hero h1).
-export const renderAboutPage: RenderPage = (container) => {
+export const renderAboutPage: RenderPage = async (container) => {
+  const settings = await settingsRepository.get();
+
   container.classList.add('about-page');
-  container.append(createHero(), createFeatures(), createTeam(), createProcess());
+  container.append(createHero(settings), createFeatures(), createTeam(), createProcess());
 };
 
-function createHero(): HTMLElement {
+function createHero(settings: Settings): HTMLElement {
   const intro = createElement('div', {
     classNames: 'hero__intro',
     children: [
@@ -37,6 +42,7 @@ function createHero(): HTMLElement {
           createLink('Add first transaction', '#/transactions', 'button button--secondary'),
         ],
       }),
+      createCurrencySelect(settings),
     ],
   });
 

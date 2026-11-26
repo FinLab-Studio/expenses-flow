@@ -4,8 +4,10 @@
 
 @use 'components/app-shell';
 @use 'components/button';
+@use 'components/segmented';
 @use 'components/page-header';
 @use 'components/currency-chip';
+@use 'components/currency-select';
 
 @use 'pages/transactions-page';
 
