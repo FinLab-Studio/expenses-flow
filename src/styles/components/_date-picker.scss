@@ -7,6 +7,19 @@
   border: 1px solid var(--color-border);
   border-radius: 12px;
   background-color: #fff;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
+
+  &__header {
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    align-items: center;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__year,
   &__month,
@@ -84,4 +97,22 @@
   &__grid:has(.date-picker__option) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+.transaction-filters__date-calendar-item {
+  position: relative;
+}
+
+.date-picker {
+  position: absolute;
+  top: calc(100% + 8px);
+  z-index: 10;
+}
+
+.transaction-filters__date-calendar-item--start .date-picker {
+  left: 0;
+}
+
+.transaction-filters__date-calendar-item--end .date-picker {
+  right: 0;
 }

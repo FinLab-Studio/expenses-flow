@@ -6,6 +6,7 @@ import { createTransactionList } from '@/widgets/transactions-list/ui/transactio
 import { filterTransactions } from '@/entities/transactions/operations/filter-transactions';
 import { searchTransactions } from '@/entities/transactions/operations/search-transactions';
 import { createTransactionControls } from '@/widgets/transaction-controls';
+import { createBalanceSummary } from '@/widgets/balance-summary/ui/balance-summary';
 
 function createPageHeader(): HTMLElement {
   const title = createElement('h1', {
@@ -53,6 +54,14 @@ export async function createTransactionsPageLayout(): Promise<HTMLElement> {
     categories: allCategories,
   });
 
+  const balanceSummary = createBalanceSummary({
+    transactions,
+    period: {
+      startDate: initialFiltersState.startDate,
+      endDate: initialFiltersState.endDate,
+    },
+  });
+
   const transactionControls = createTransactionControls({
     categories,
     initialState: initialFiltersState,
@@ -62,11 +71,21 @@ export async function createTransactionsPageLayout(): Promise<HTMLElement> {
       const filteredBySearch = searchTransactions(filteredByFilters, searchTerm);
 
       transactionList.update(filteredBySearch);
+
+      balanceSummary.updatePeriod({
+        startDate: filtersState.startDate,
+        endDate: filtersState.endDate,
+      });
     },
   });
 
   return createElement('main', {
     classNames: 'transactions-page',
-    children: [createPageHeader(), transactionControls, transactionList.element],
+    children: [
+      createPageHeader(),
+      transactionControls,
+      balanceSummary.element,
+      transactionList.element,
+    ],
   });
 }

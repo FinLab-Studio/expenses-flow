@@ -8,7 +8,7 @@ interface BalanceSummary {
   closingBalance: number;
 }
 
-interface BalancePeriod {
+export interface BalancePeriod {
   startDate: string;
   endDate: string;
 }
@@ -55,51 +55,6 @@ export function calculateBalance(
 
   const periodChange = periodIncome - periodExpenses;
   const closingBalance = openingBalance + periodChange;
-
-  // if (!period) {
-  //   const totalBalance = transactions.reduce(
-  //     (balance, transaction) => balance + getTransactionBalanceChange(transaction),
-  //     0,
-  //   );
-
-  //   return {
-  //     openingBalance: 0,
-  //     periodChange: totalBalance,
-  //     closingBalance: totalBalance,
-  //   };
-  // }
-
-  // const periodIncome = transactions
-  //   .filter((transaction) => transaction.type === 'income')
-  //   .reduce((total, transaction) => total + transaction.amount, 0);
-
-  // const periodExpenses = transactions
-  //   .filter((transaction) => transaction.type === 'expenses')
-  //   .reduce((total, transaction) => total + transaction.amount, 0);
-
-  // const { openingBalance, periodChange } = transactions.reduce(
-  //   (accumulator, transaction) => {
-  //     if (transaction.date < period.startDate) {
-  //       return {
-  //         ...accumulator,
-  //         openingBalance: accumulator.openingBalance + getTransactionBalanceChange(transaction),
-  //       };
-  //     }
-
-  //     if (transaction.date <= period.endDate) {
-  //       return {
-  //         ...accumulator,
-  //         periodChange: accumulator.periodChange + getTransactionBalanceChange(transaction),
-  //       };
-  //     }
-
-  //     return accumulator;
-  //   },
-  //   {
-  //     openingBalance: 0,
-  //     periodChange: 0,
-  //   },
-  // );
 
   return {
     openingBalance,

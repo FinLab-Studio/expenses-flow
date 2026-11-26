@@ -63,6 +63,16 @@ export function createDatePicker({ label, value, onSelect }: DatePickerOptions):
     },
   });
 
+  const heading = createElement('div', {
+    classNames: 'date-picker__heading',
+    children: [yearButton, monthButton],
+  });
+
+  const header = createElement('div', {
+    classNames: 'date-picker__header',
+    children: [previousMonthButton, heading, nextMonthButton],
+  });
+
   previousMonthButton.addEventListener('click', () => {
     displayedMonth = displayedMonth.subtract({ months: 1 });
     currentView = 'days';
@@ -184,7 +194,7 @@ export function createDatePicker({ label, value, onSelect }: DatePickerOptions):
     render();
   });
 
-  calendar.append(previousMonthButton, yearButton, monthButton, nextMonthButton, grid);
+  calendar.append(header, grid);
 
   render();
 
