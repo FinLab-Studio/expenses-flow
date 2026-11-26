@@ -52,6 +52,7 @@ export function createDropdown({
       return;
     }
 
+    trigger.textContent = event.target.textContent;
     onSelect?.(selectedValue);
 
     isOpen = false;

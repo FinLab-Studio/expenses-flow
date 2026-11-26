@@ -13,6 +13,12 @@ interface FilterComponent {
 
 type FilterUpdate = Partial<TransactionFiltersState>;
 
+interface TransactionFiltersOptions {
+  categories: CategoriesDTO;
+  state: TransactionFiltersState;
+  onChange: (state: TransactionFiltersState) => void;
+}
+
 function createFilterLabel(text: string): HTMLElement {
   return createElement('span', {
     classNames: 'transaction-filters__label',
@@ -20,10 +26,11 @@ function createFilterLabel(text: string): HTMLElement {
   });
 }
 
-export function createTransactionFilters(
-  categories: CategoriesDTO,
-  state: TransactionFiltersState,
-): HTMLElement {
+export function createTransactionFilters({
+  categories,
+  state,
+  onChange,
+}: TransactionFiltersOptions): HTMLElement {
   let filtersState = { ...state };
 
   const dateFilter = createDateFilters(filtersState, (updates) => {
@@ -31,6 +38,8 @@ export function createTransactionFilters(
       ...filtersState,
       ...updates,
     };
+
+    onChange(filtersState);
   });
 
   const categoryFilter = createCategoryFilter(categories, filtersState, (updates) => {
@@ -39,7 +48,8 @@ export function createTransactionFilters(
       ...updates,
     };
 
-    categoryFilter.update(filtersState);
+    //categoryFilter.update(filtersState);
+    onChange(filtersState);
   });
 
   const typeFilter = createTypeFilter(filtersState, (updates) => {
@@ -50,6 +60,7 @@ export function createTransactionFilters(
 
     typeFilter.update(filtersState);
     categoryFilter.update(filtersState);
+    onChange(filtersState);
   });
 
   const filtersContentContainer = createElement('div', {
