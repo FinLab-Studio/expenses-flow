@@ -25,9 +25,30 @@
   }
 }
 
+// The background is set for <button>: otherwise the browser paints its own grey one
 .button--secondary {
   color: var(--color-text);
+  background-color: var(--color-surface);
   border-color: var(--color-border-strong);
+
+  &:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+}
+
+// Icon-only button 44×44 (Close in a modal, Edit in a transaction row): needs an aria-label.
+.icon-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch);
+  height: var(--size-touch);
+  color: var(--color-text-muted);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-md);
 
   &:hover {
     color: var(--color-text);

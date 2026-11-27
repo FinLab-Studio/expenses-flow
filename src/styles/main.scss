@@ -8,6 +8,9 @@
 @use 'components/page-header';
 @use 'components/currency-chip';
 @use 'components/currency-select';
+@use 'components/modal';
+@use 'components/field';
+@use 'components/transaction-form';
 
 @use 'pages/transactions-page';
 

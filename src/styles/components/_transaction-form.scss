@@ -1,0 +1,148 @@
+// Transaction form in the modal (AddTransactionModal artboard):
+// type · amount · category tiles · date with shortcuts · description.
+
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+// Type: the shared segmented control, stretched to two equal halves
+.transaction-form__type {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  .segmented__option {
+    min-height: var(--size-touch);
+  }
+}
+
+.transaction-form__type-option--expenses:has(:checked) {
+  color: var(--color-expense);
+}
+
+.transaction-form__type-option--income:has(:checked) {
+  color: var(--color-income);
+}
+
+// Amount: a large field with the sign on the left and the currency on the right
+.amount-input {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: 64px;
+  padding: 0 var(--space-4);
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+
+  // The focus ring and the error border are on the box, not on the borderless input
+  &:has(:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  &:has([aria-invalid='true']) {
+    border-color: var(--color-expense);
+    box-shadow: inset 0 0 0 1px var(--color-expense);
+  }
+}
+
+.amount-input__sign,
+.amount-input__control {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.amount-input__sign {
+  color: var(--color-expense);
+}
+
+.amount-input__sign--income {
+  color: var(--color-income);
+}
+
+.amount-input__control {
+  flex: 1;
+  min-width: 0;
+  color: var(--color-text);
+  background: none;
+  border: 0;
+  outline: none;
+}
+
+.amount-input__currency {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-muted);
+}
+
+// Category: tiles in 4 columns; native radio inside each label (as .segmented)
+.category-picker {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.category-picker__option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: 76px;
+  padding: var(--space-3) var(--space-2);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-tight);
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  &:hover {
+    border-color: var(--color-border-strong);
+  }
+
+  // 2px accent border as in the design, without moving the content
+  &:has(:checked) {
+    background-color: var(--color-primary-soft);
+    border-color: var(--color-primary);
+    box-shadow: inset 0 0 0 1px var(--color-primary);
+  }
+
+  &:has(:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+// The icon on the tint of the category color (CATEGORY_COLORS: icon / tint)
+.category-picker__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--category-icon-color);
+  background-color: var(--category-icon-tint);
+  border-radius: var(--radius-md);
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// Date: the field and the Today / Yesterday shortcuts in one row
+.transaction-form__date {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: var(--space-2);
+}
+
+.transaction-form__date-shortcut {
+  min-height: var(--size-touch);
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-md);
+  border-radius: var(--radius-md);
+}
