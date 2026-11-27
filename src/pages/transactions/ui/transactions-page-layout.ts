@@ -1,7 +1,9 @@
 import { createElement } from '@/shared/lib/dom/create-element';
 import { categoryRepository } from '@/entities/category/api/category-repository';
 import { getInitialFiltersState } from '@/features/transaction-filters';
+import { openTransactionModal } from '@/features/transaction-form';
 import { transactionRepository } from '@/entities/transactions/api/transaction-repository';
+import type { Transaction } from '@/entities/transactions/model/transaction.interface';
 import { createTransactionList } from '@/widgets/transactions-list/ui/transaction-list';
 import { filterTransactions } from '@/entities/transactions/operations/filter-transactions';
 import { searchTransactions } from '@/entities/transactions/operations/search-transactions';
@@ -10,12 +12,14 @@ import { createBalanceSummary } from '@/widgets/balance-summary/ui/balance-summa
 import { createPageHeader } from '@/widgets/page-header';
 
 // The shared page header: title · currency chip · main action, as on the other pages.
-function createHeader(): HTMLElement {
+function createHeader(onAdd: () => void): HTMLElement {
   const addButton = createElement('button', {
     classNames: 'button button--primary',
     textContent: 'Add transaction',
     attributes: { type: 'button' },
   });
+
+  addButton.addEventListener('click', onAdd);
 
   return createPageHeader({
     title: 'Transactions',
@@ -25,52 +29,73 @@ function createHeader(): HTMLElement {
 }
 
 export async function createTransactionsPageLayout(): Promise<HTMLElement> {
-  const [categories, transactions] = await Promise.all([
+  const [categories, initialTransactions] = await Promise.all([
     categoryRepository.getAll(),
     transactionRepository.getAll(),
   ]);
 
   const allCategories = [...categories.income, ...categories.expenses];
 
-  const initialFiltersState = getInitialFiltersState();
+  // Page state: read again after the modal saves a transaction (no separate store)
+  let transactions = initialTransactions;
+  let filtersState = getInitialFiltersState();
+  let searchTerm = '';
+
   const today = Temporal.Now.plainDateISO().toString();
 
-  const initialFilteredTransactions = filterTransactions(transactions, initialFiltersState, today);
-
   const transactionList = createTransactionList({
-    transactions: initialFilteredTransactions,
+    transactions: filterTransactions(transactions, filtersState, today),
     categories: allCategories,
+    onEdit: (transaction) => openModal(transaction),
   });
 
-  const balanceSummary = createBalanceSummary({
+  let balanceSummary = createBalanceSummary({
     transactions,
-    period: {
-      startDate: initialFiltersState.startDate,
-      endDate: initialFiltersState.endDate,
-    },
+    period: filtersState,
   });
+
+  function showTransactions(): void {
+    const filteredByFilters = filterTransactions(transactions, filtersState, today);
+
+    const filteredBySearch = searchTransactions(filteredByFilters, searchTerm);
+
+    transactionList.update(filteredBySearch);
+
+    balanceSummary.updatePeriod(filtersState);
+  }
+
+  // After the modal saved: the new list with the same filters and search
+  async function reload(): Promise<void> {
+    transactions = await transactionRepository.getAll();
+
+    // The summary keeps the list it was created with, so it is created again
+    const nextSummary = createBalanceSummary({ transactions, period: filtersState });
+    balanceSummary.element.replaceWith(nextSummary.element);
+    balanceSummary = nextSummary;
+
+    showTransactions();
+  }
+
+  // Without a transaction the modal adds a new one
+  function openModal(transaction?: Transaction): void {
+    void openTransactionModal({ transaction, onSaved: () => void reload() });
+  }
 
   const transactionControls = createTransactionControls({
     categories,
-    initialState: initialFiltersState,
-    onChange: (filtersState, searchTerm) => {
-      const filteredByFilters = filterTransactions(transactions, filtersState, today);
+    initialState: filtersState,
+    onChange: (nextFiltersState, nextSearchTerm) => {
+      filtersState = nextFiltersState;
+      searchTerm = nextSearchTerm;
 
-      const filteredBySearch = searchTransactions(filteredByFilters, searchTerm);
-
-      transactionList.update(filteredBySearch);
-
-      balanceSummary.updatePeriod({
-        startDate: filtersState.startDate,
-        endDate: filtersState.endDate,
-      });
+      showTransactions();
     },
   });
 
   return createElement('div', {
     classNames: 'transactions-page',
     children: [
-      createHeader(),
+      createHeader(() => openModal()),
       transactionControls,
       balanceSummary.element,
       transactionList.element,
