@@ -11,6 +11,8 @@ interface TransactionListComponent {
 export function createTransactionList({
   transactions,
   categories,
+  showCategoryMarker = false,
+  highlightIncome = false,
   onEdit,
 }: TransactionListOptions): TransactionListComponent {
   const categoryMap = new Map(categories.map((category) => [category.id, category]));
@@ -33,7 +35,13 @@ export function createTransactionList({
     const items = transactions.map((transaction) => {
       const category = categoryMap.get(transaction.categoryId) ?? null;
 
-      return createTransactionItem({ transaction, category, onEdit });
+      return createTransactionItem({
+        transaction,
+        category,
+        showCategoryMarker,
+        highlightIncome,
+        onEdit,
+      });
     });
 
     element.replaceChildren(...items);

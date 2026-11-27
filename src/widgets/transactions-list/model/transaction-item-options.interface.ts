@@ -4,5 +4,7 @@ import type { Transaction } from '@/entities/transactions/model/transaction.inte
 export interface TransactionItemOptions {
   transaction: Transaction;
   category: Category | null;
+  showCategoryMarker?: boolean;
+  highlightIncome?: boolean;
   onEdit?: (transaction: Transaction) => void; // with it, the row gets an Edit button
 }

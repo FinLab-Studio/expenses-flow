@@ -13,6 +13,7 @@
 @use 'components/transaction-form';
 
 @use 'pages/transactions-page';
+@use 'pages/dashboard_page';
 
 @use 'components/dropdown';
 @use 'components/date-picker';
@@ -20,5 +21,10 @@
 @use 'components/transactions-list.scss';
 @use 'components/transaction-search-field';
 @use 'components/balance-summary';
+@use 'components/dashboard-summary';
+@use 'components/month-switcher';
+@use 'components/budget-progress';
+@use 'components/expenses-by-month';
+@use 'components/spending-by-category';
 
 @use 'components/about-page';

@@ -28,7 +28,9 @@ function createHeader(onAdd: () => void): HTMLElement {
   });
 }
 
-export async function createTransactionsPageLayout(): Promise<HTMLElement> {
+export async function createTransactionsPageLayout(
+  monthParam: string | null,
+): Promise<HTMLElement> {
   const [categories, initialTransactions] = await Promise.all([
     categoryRepository.getAll(),
     transactionRepository.getAll(),
@@ -36,9 +38,13 @@ export async function createTransactionsPageLayout(): Promise<HTMLElement> {
 
   const allCategories = [...categories.income, ...categories.expenses];
 
+  const currentMonth = Temporal.Now.plainDateISO().toPlainYearMonth();
+
+  const selectedMonth = monthParam ? Temporal.PlainYearMonth.from(monthParam) : currentMonth;
+
   // Page state: read again after the modal saves a transaction (no separate store)
   let transactions = initialTransactions;
-  let filtersState = getInitialFiltersState();
+  let filtersState = getInitialFiltersState(selectedMonth);
   let searchTerm = '';
 
   const today = Temporal.Now.plainDateISO().toString();

@@ -722,7 +722,7 @@
   {
     "id": "2088",
     "type": "expenses",
-    "amount": 4189,
+    "amount": 14189,
     "categoryId": "1006",
     "date": "2026-09-09",
     "description": "Groceries"
@@ -730,7 +730,7 @@
   {
     "id": "2098",
     "type": "expenses",
-    "amount": 1301,
+    "amount": 8301,
     "categoryId": "1009",
     "date": "2026-09-10",
     "description": "Public transport"
@@ -738,7 +738,7 @@
   {
     "id": "2089",
     "type": "expenses",
-    "amount": 4717,
+    "amount": 14717,
     "categoryId": "1006",
     "date": "2026-09-11",
     "description": "Groceries"
@@ -746,7 +746,7 @@
   {
     "id": "2099",
     "type": "expenses",
-    "amount": 1639,
+    "amount": 7639,
     "categoryId": "1009",
     "date": "2026-09-11",
     "description": "Taxi"
@@ -754,7 +754,7 @@
   {
     "id": "2090",
     "type": "expenses",
-    "amount": 3937,
+    "amount": 13937,
     "categoryId": "1006",
     "date": "2026-09-12",
     "description": "Market"
@@ -762,7 +762,7 @@
   {
     "id": "2110",
     "type": "expenses",
-    "amount": 2338,
+    "amount": 82338,
     "categoryId": "1011",
     "date": "2026-09-13",
     "description": "Personal purchase"
@@ -770,7 +770,7 @@
   {
     "id": "2091",
     "type": "expenses",
-    "amount": 5884,
+    "amount": 15884,
     "categoryId": "1006",
     "date": "2026-09-15",
     "description": "Weekly shopping"
@@ -778,7 +778,7 @@
   {
     "id": "2106",
     "type": "expenses",
-    "amount": 3493,
+    "amount": 13493,
     "categoryId": "1008",
     "date": "2026-09-15",
     "description": "Concert"
@@ -786,7 +786,7 @@
   {
     "id": "2092",
     "type": "expenses",
-    "amount": 6290,
+    "amount": 16290,
     "categoryId": "1006",
     "date": "2026-09-18",
     "description": "Supermarket"
@@ -794,7 +794,7 @@
   {
     "id": "2104",
     "type": "expenses",
-    "amount": 1692,
+    "amount": 10692,
     "categoryId": "1010",
     "date": "2026-09-18",
     "description": "Dinner with friends"
@@ -802,7 +802,7 @@
   {
     "id": "2108",
     "type": "expenses",
-    "amount": 3519,
+    "amount": 13519,
     "categoryId": "1007",
     "date": "2026-09-18",
     "description": "Pharmacy"
@@ -906,7 +906,7 @@
   {
     "id": "2130",
     "type": "expenses",
-    "amount": 842,
+    "amount": 1042,
     "categoryId": "1010",
     "date": "2026-10-01",
     "description": "Dinner with friends"
@@ -914,7 +914,7 @@
   {
     "id": "2115",
     "type": "expenses",
-    "amount": 5171,
+    "amount": 15771,
     "categoryId": "1006",
     "date": "2026-10-02",
     "description": "Weekly shopping"
@@ -922,7 +922,7 @@
   {
     "id": "2114",
     "type": "expenses",
-    "amount": 83962,
+    "amount": 105962,
     "categoryId": "1005",
     "date": "2026-10-03",
     "description": "Rent"
@@ -930,15 +930,15 @@
   {
     "id": "2126",
     "type": "expenses",
-    "amount": 1816,
-    "categoryId": "1009",
+    "amount": 5016,
+    "categoryId": "1109",
     "date": "2026-10-03",
     "description": "Transport pass"
   },
   {
     "id": "2116",
     "type": "expenses",
-    "amount": 4382,
+    "amount": 16882,
     "categoryId": "1006",
     "date": "2026-10-04",
     "description": "Supermarket"
@@ -946,7 +946,7 @@
   {
     "id": "2127",
     "type": "expenses",
-    "amount": 2343,
+    "amount": 3343,
     "categoryId": "1009",
     "date": "2026-10-04",
     "description": "Taxi"
@@ -954,7 +954,7 @@
   {
     "id": "2131",
     "type": "expenses",
-    "amount": 1916,
+    "amount": 5916,
     "categoryId": "1010",
     "date": "2026-10-05",
     "description": "Cafe"
@@ -962,7 +962,7 @@
   {
     "id": "2117",
     "type": "expenses",
-    "amount": 5191,
+    "amount": 16191,
     "categoryId": "1006",
     "date": "2026-10-08",
     "description": "Weekly shopping"
@@ -970,7 +970,7 @@
   {
     "id": "2118",
     "type": "expenses",
-    "amount": 5720,
+    "amount": 12720,
     "categoryId": "1006",
     "date": "2026-10-09",
     "description": "Groceries"
@@ -978,7 +978,7 @@
   {
     "id": "2136",
     "type": "expenses",
-    "amount": 1823,
+    "amount": 10823,
     "categoryId": "1007",
     "date": "2026-10-09",
     "description": "Doctor appointment"
@@ -986,7 +986,7 @@
   {
     "id": "2141",
     "type": "income",
-    "amount": 12734,
+    "amount": 15734,
     "categoryId": "1003",
     "date": "2026-10-09",
     "description": "Gift"
@@ -994,7 +994,7 @@
   {
     "id": "2119",
     "type": "expenses",
-    "amount": 2264,
+    "amount": 5264,
     "categoryId": "1006",
     "date": "2026-10-10",
     "description": "Groceries"

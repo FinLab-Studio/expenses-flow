@@ -1,0 +1,2 @@
+export const BUDGET_WARNING_THRESHOLD = 80;
+export const MONTHLY_BUDGET = 300_000;

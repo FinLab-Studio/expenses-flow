@@ -1,11 +1,9 @@
 import type { TransactionFiltersState } from '../model/transaction-filters-state.interface';
 
-export function getInitialFiltersState(): TransactionFiltersState {
-  const today = Temporal.Now.plainDateISO();
-
+export function getInitialFiltersState(month: Temporal.PlainYearMonth): TransactionFiltersState {
   return {
-    startDate: today.with({ day: 1 }).toString(),
-    endDate: today.with({ day: today.daysInMonth }).toString(),
+    startDate: month.toPlainDate({ day: 1 }).toString(),
+    endDate: month.toPlainDate({ day: month.daysInMonth }).toString(),
     categoryId: null,
     type: 'all',
   };
