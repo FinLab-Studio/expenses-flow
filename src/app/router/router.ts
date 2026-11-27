@@ -28,7 +28,9 @@ export function createRouter({ routes, outlet, onNavigate }: RouterOptions): Rou
   let cleanup: PageCleanup;
 
   function navigate(): void {
-    let route = routes.find(({ path }) => location.hash === `#/${path}`);
+    const hashPath = location.hash.slice(2).split('?')[0];
+
+    let route = routes.find(({ path }) => path === hashPath);
 
     if (!route) {
       route = routes[0];

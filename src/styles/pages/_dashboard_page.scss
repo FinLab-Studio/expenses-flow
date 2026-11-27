@@ -13,6 +13,22 @@
   }
 }
 
+.recent-transactions {
+  padding-block: 1rem;
+}
+
+.recent-transactions__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 1rem;
+}
+
+.recent-transactions__link {
+  color: var(--color-primary-text);
+}
+
 .dashboard-page__row--analytics {
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
 }

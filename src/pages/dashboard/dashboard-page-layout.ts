@@ -9,6 +9,7 @@ import { createBudgetProgress } from '@/widgets/budget-progress/budget-progress'
 import { MONTHLY_BUDGET } from '@/widgets/budget-progress/model/constants';
 import { createDashboardSummary } from '@/widgets/dashboard-summary/ui/dashboard-summary';
 import { createExpensesByMonth } from '@/widgets/expenses-by-month/expenses-by-month';
+import { createRecentTransactions } from '@/widgets/recent-transactions/recent-transactions';
 import { createSpendingByCategory } from '@/widgets/spending-by-category/spending-by-category';
 
 interface DashboardPageLayout {
@@ -60,9 +61,17 @@ export async function createDashboardPageLayout(
     children: [expensesByMonth, spendingByCategory.element],
   });
 
+  const allCategories = [...categories.income, ...categories.expenses];
+
+  const recentTransactions = createRecentTransactions({
+    transactions,
+    categories: allCategories,
+    month: initialMonth,
+  });
+
   const element = createElement('div', {
     classNames: 'dashboard-page',
-    children: [summaryRow, analyticsRow],
+    children: [summaryRow, analyticsRow, recentTransactions.element],
   });
 
   function updateMonth(month: Temporal.PlainYearMonth): void {
@@ -71,6 +80,7 @@ export async function createDashboardPageLayout(
     dashboardSummary.updatePeriod(period);
     budgetProgress.update(calculateBalance(transactions, period).periodExpenses, MONTHLY_BUDGET);
     spendingByCategory.updatePeriod(period);
+    recentTransactions.updateMonth(month);
   }
 
   return {

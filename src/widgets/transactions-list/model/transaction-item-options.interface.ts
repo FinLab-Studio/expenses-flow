@@ -4,4 +4,6 @@ import type { Transaction } from '@/entities/transactions/model/transaction.inte
 export interface TransactionItemOptions {
   transaction: Transaction;
   category: Category | null;
+  showCategoryMarker?: boolean;
+  highlightIncome?: boolean;
 }
