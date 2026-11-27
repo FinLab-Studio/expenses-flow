@@ -4,4 +4,5 @@ import type { Transaction } from '@/entities/transactions/model/transaction.inte
 export interface TransactionListOptions {
   transactions: Transaction[];
   categories: Category[];
+  onEdit?: (transaction: Transaction) => void; // with it, every row gets an Edit button
 }

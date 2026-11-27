@@ -11,11 +11,13 @@
 
 .transaction-item {
   display: grid;
+  // The last column is the Edit button (empty when the list has no onEdit)
   grid-template-columns:
     minmax(90px, 0.8fr)
     minmax(100px, 1.5fr)
     minmax(90px, 1fr)
-    minmax(90px, auto);
+    minmax(90px, auto)
+    auto;
   align-items: center;
   gap: 16px;
   padding: 12px 0;
@@ -57,6 +59,11 @@
     font-weight: 600;
     white-space: nowrap;
   }
+
+  // The 44px touch area overlaps the row padding, so the row stays as tall as without it
+  &__edit {
+    margin-block: calc(-1 * var(--space-2));
+  }
 }
 
 @include mx.down(md) {
@@ -71,7 +78,7 @@
 
     &__content {
       display: grid;
-      grid-template-columns: 40px minmax(0, 1fr) auto;
+      grid-template-columns: 40px minmax(0, 1fr) auto auto;
       align-items: center;
       gap: 12px;
     }
