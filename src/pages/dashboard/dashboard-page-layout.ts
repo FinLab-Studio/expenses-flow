@@ -7,6 +7,7 @@ import { createElement } from '@/shared/lib/dom/create-element';
 import { createBudgetProgress } from '@/widgets/budget-progress/budget-progress';
 import { MONTHLY_BUDGET } from '@/widgets/budget-progress/model/constants';
 import { createDashboardSummary } from '@/widgets/dashboard-summary/ui/dashboard-summary';
+import { createExpensesByMonth } from '@/widgets/expenses-by-month/expenses-by-month';
 
 interface DashboardPageLayout {
   element: HTMLElement;
@@ -42,9 +43,16 @@ export async function createDashboardPageLayout(
     children: [dashboardSummary.element, budgetProgress.element],
   });
 
+  const expensesByMonth = createExpensesByMonth({ transactions });
+
+  const analyticsRow = createElement('div', {
+    classNames: 'dashboard-page__row dashboard-page__row--analytics',
+    children: [expensesByMonth],
+  });
+
   const element = createElement('div', {
     classNames: 'dashboard-page',
-    children: [summaryRow],
+    children: [summaryRow, analyticsRow],
   });
 
   function updateMonth(month: Temporal.PlainYearMonth): void {
