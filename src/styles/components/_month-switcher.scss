@@ -1,0 +1,39 @@
+.month-switcher {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 10px 12px;
+}
+
+.month-switcher__label {
+  min-width: 9.5em; // the longest month name does not make the pill jump
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.month-switcher__button {
+  display: grid;
+  place-items: center;
+  width: var(--size-touch);
+  height: var(--size-touch);
+  color: var(--color-text-muted);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-pill);
+
+  svg {
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+@media (hover: hover) {
+  month-switcher__button:hover {
+    color: var(--color-text);
+  }
+}

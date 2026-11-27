@@ -24,7 +24,9 @@ function createHeader(): HTMLElement {
   });
 }
 
-export async function createTransactionsPageLayout(): Promise<HTMLElement> {
+export async function createTransactionsPageLayout(
+  monthParam: string | null,
+): Promise<HTMLElement> {
   const [categories, transactions] = await Promise.all([
     categoryRepository.getAll(),
     transactionRepository.getAll(),
@@ -32,7 +34,11 @@ export async function createTransactionsPageLayout(): Promise<HTMLElement> {
 
   const allCategories = [...categories.income, ...categories.expenses];
 
-  const initialFiltersState = getInitialFiltersState();
+  const currentMonth = Temporal.Now.plainDateISO().toPlainYearMonth();
+
+  const selectedMonth = monthParam ? Temporal.PlainYearMonth.from(monthParam) : currentMonth;
+
+  const initialFiltersState = getInitialFiltersState(selectedMonth);
   const today = Temporal.Now.plainDateISO().toString();
 
   const initialFilteredTransactions = filterTransactions(transactions, initialFiltersState, today);

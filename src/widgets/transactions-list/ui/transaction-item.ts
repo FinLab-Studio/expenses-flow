@@ -7,6 +7,8 @@ import { formatSignedMoney } from '@/shared/lib/money';
 export function createTransactionItem({
   transaction,
   category,
+  showCategoryMarker = false,
+  highlightIncome = false,
 }: TransactionItemOptions): HTMLLIElement {
   const date = createElement('time', {
     classNames: 'transaction-item__date',
@@ -44,14 +46,27 @@ export function createTransactionItem({
     textContent: transaction.description?.trim() || 'Other',
   });
 
+  const categoryMarker = createElement('span', {
+    classNames: `transaction-item__category-marker${
+      showCategoryMarker ? ' transaction-item__category-marker--visible' : ''
+    }`,
+  });
+
+  categoryMarker.style.backgroundColor = CATEGORY_COLORS[category?.color ?? 'gray'].chart;
+
   const categoryName = createElement('span', {
-    classNames: 'transaction-item__category',
+    classNames: 'transaction-item__category-name',
     textContent: category?.name ?? 'Unknown category',
+  });
+
+  const categoryElement = createElement('div', {
+    classNames: 'transaction-item__category',
+    children: [categoryMarker, categoryName],
   });
 
   const details = createElement('div', {
     classNames: 'transaction-item__details',
-    children: [description, categoryName],
+    children: [description, categoryElement],
   });
 
   const formattedAmount = formatSignedMoney(
@@ -59,7 +74,9 @@ export function createTransactionItem({
   );
 
   const amount = createElement('span', {
-    classNames: 'transaction-item__amount',
+    classNames: `transaction-item__amount${
+      highlightIncome && transaction.type === 'income' ? ' transaction-item__amount--income' : ''
+    }`,
     textContent: formattedAmount,
   });
 
