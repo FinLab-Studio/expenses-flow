@@ -1,9 +1,22 @@
 import type { RenderPage } from '@/shared/types/render-page.type';
 import { createPageHeader } from '@/widgets/page-header';
+import { createDashboardPageLayout } from './dashboard-page-layout';
+import { createMonthSwitcher } from '@/features/switch-month/ui/month-switcher';
 
 // Placeholder: the Dashboard comes in its own task.
-export const renderDashboardPage: RenderPage = (container) => {
-  const header = createPageHeader({ title: 'Dashboard', subtitle: 'Your month at a glance' });
+export const renderDashboardPage: RenderPage = async (container) => {
+  const currentMonth = Temporal.Now.plainDateISO().toPlainYearMonth();
 
-  container.append(header);
+  const layout = await createDashboardPageLayout(currentMonth);
+
+  const monthSwitcher = createMonthSwitcher(currentMonth, (month) => {
+    layout.updateMonth(month);
+  });
+  const header = createPageHeader({
+    title: 'Dashboard',
+    subtitle: 'Your month at a glance',
+    controls: monthSwitcher,
+  });
+
+  container.append(header, layout.element);
 };

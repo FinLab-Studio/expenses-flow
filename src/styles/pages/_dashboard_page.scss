@@ -1,0 +1,21 @@
+.dashboard-page {
+  &__row {
+    display: grid;
+    gap: 1rem;
+
+    &--summary {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    }
+  }
+}
+
+@media (width < 1440px) {
+  .dashboard-page__row--summary {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+@media (width < 1024px) {
+  .dashboard-page__row--summary {
+    grid-template-columns: 1fr;
+  }
+}
