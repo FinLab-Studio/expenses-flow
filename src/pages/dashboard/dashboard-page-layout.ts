@@ -1,3 +1,4 @@
+import { categoryRepository } from '@/entities/category/api/category-repository';
 import { transactionRepository } from '@/entities/transactions/api/transaction-repository';
 import {
   calculateBalance,
@@ -8,6 +9,7 @@ import { createBudgetProgress } from '@/widgets/budget-progress/budget-progress'
 import { MONTHLY_BUDGET } from '@/widgets/budget-progress/model/constants';
 import { createDashboardSummary } from '@/widgets/dashboard-summary/ui/dashboard-summary';
 import { createExpensesByMonth } from '@/widgets/expenses-by-month/expenses-by-month';
+import { createSpendingByCategory } from '@/widgets/spending-by-category/spending-by-category';
 
 interface DashboardPageLayout {
   element: HTMLElement;
@@ -17,7 +19,10 @@ interface DashboardPageLayout {
 export async function createDashboardPageLayout(
   initialMonth: Temporal.PlainYearMonth,
 ): Promise<DashboardPageLayout> {
-  const transactions = await transactionRepository.getAll();
+  const [categories, transactions] = await Promise.all([
+    categoryRepository.getAll(),
+    transactionRepository.getAll(),
+  ]);
 
   function getMonthPeriod(month: Temporal.PlainYearMonth): BalancePeriod {
     return {
@@ -45,9 +50,14 @@ export async function createDashboardPageLayout(
 
   const expensesByMonth = createExpensesByMonth({ transactions });
 
+  const spendingByCategory = createSpendingByCategory({
+    transactions,
+    categories: categories.expenses,
+  });
+
   const analyticsRow = createElement('div', {
     classNames: 'dashboard-page__row dashboard-page__row--analytics',
-    children: [expensesByMonth],
+    children: [expensesByMonth, spendingByCategory.element],
   });
 
   const element = createElement('div', {
@@ -60,6 +70,7 @@ export async function createDashboardPageLayout(
 
     dashboardSummary.updatePeriod(period);
     budgetProgress.update(calculateBalance(transactions, period).periodExpenses, MONTHLY_BUDGET);
+    spendingByCategory.updatePeriod(period);
   }
 
   return {

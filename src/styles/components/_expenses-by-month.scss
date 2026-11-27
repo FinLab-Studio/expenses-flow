@@ -150,6 +150,7 @@
 }
 
 .expenses-by-month__legend-marker--budget {
+  flex-basis: 14px;
   width: 14px;
   height: 0;
   border-top: 2px dashed var(--color-warning);

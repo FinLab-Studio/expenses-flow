@@ -75,7 +75,6 @@ export function createExpensesByMonth({ transactions }: ExpensesByMonthOptions):
   });
 
   const budgetPosition = (MONTHLY_BUDGET / chartMax) * 100;
-  budgetLine.style.bottom = `${budgetPosition}%`;
 
   const plotArea = createElement('div', {
     classNames: 'expenses-by-month__plot-area',
