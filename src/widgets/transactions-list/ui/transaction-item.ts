@@ -4,11 +4,17 @@ import { createCategoryIcon } from '@/entities/category/ui/category-icon/ui/cate
 import { CATEGORY_COLORS } from '@/entities/category/model/config/category-colors';
 import { formatSignedMoney } from '@/shared/lib/money';
 
+// The pencil from the Transactions artboard
+const EDIT_ICON = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M4 20h4L19 9l-4-4L4 16z" /></svg>`;
+
 export function createTransactionItem({
   transaction,
   category,
   showCategoryMarker = false,
   highlightIncome = false,
+  onEdit,
 }: TransactionItemOptions): HTMLLIElement {
   const date = createElement('time', {
     classNames: 'transaction-item__date',
@@ -85,8 +91,25 @@ export function createTransactionItem({
     children: [iconWrapper, details, amount],
   });
 
+  if (onEdit) {
+    content.append(createEditButton(description.textContent, () => onEdit(transaction)));
+  }
+
   return createElement('li', {
     classNames: 'transaction-item',
     children: [date, content],
   });
+}
+
+// An icon button 44×44; the label names the row: "Edit Supermarket, weekly groceries"
+function createEditButton(rowName: string, onClick: () => void): HTMLButtonElement {
+  const button = createElement('button', {
+    classNames: 'icon-button transaction-item__edit',
+    attributes: { type: 'button', 'aria-label': `Edit ${rowName}` },
+  });
+
+  button.innerHTML = EDIT_ICON; // static markup
+  button.addEventListener('click', onClick);
+
+  return button;
 }

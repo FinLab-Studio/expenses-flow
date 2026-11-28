@@ -1,0 +1,44 @@
+// Modal window: a native <dialog> opened with showModal() (the transaction form; later categories).
+// Markup: dialog.modal > form.modal__form > header.modal__header · .modal__body · footer.modal__footer.
+
+.modal {
+  width: min(540px, 100% - 2 * var(--space-6));
+  max-height: calc(100% - 2 * var(--space-6));
+  padding: 0;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 0;
+  border-radius: var(--radius-2xl);
+
+  // The fallback is for browsers where ::backdrop doesn't inherit custom properties yet
+  &::backdrop {
+    background-color: var(--color-overlay, rgb(22 26 35 / 50%));
+  }
+}
+
+.modal__header {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-5) var(--space-5) 0 var(--space-6);
+}
+
+.modal__title {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+}
+
+.modal__body {
+  padding: var(--space-4) var(--space-6) var(--space-2);
+}
+
+.modal__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  margin-top: var(--space-2);
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  border-top: 1px solid var(--color-border-subtle);
+}

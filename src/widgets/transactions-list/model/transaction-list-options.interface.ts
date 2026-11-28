@@ -6,4 +6,5 @@ export interface TransactionListOptions {
   categories: readonly Category[];
   showCategoryMarker?: boolean;
   highlightIncome?: boolean;
+  onEdit?: (transaction: Transaction) => void; // with it, every row gets an Edit button
 }
