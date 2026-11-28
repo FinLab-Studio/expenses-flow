@@ -3,7 +3,6 @@ import { createPageHeader } from '@/widgets/page-header';
 import { createDashboardPageLayout } from './dashboard-page-layout';
 import { createMonthSwitcher } from '@/features/switch-month/ui/month-switcher';
 
-// Placeholder: the Dashboard comes in its own task.
 export const renderDashboardPage: RenderPage = async (container) => {
   const currentMonth = Temporal.Now.plainDateISO().toPlainYearMonth();
 
@@ -19,4 +18,7 @@ export const renderDashboardPage: RenderPage = async (container) => {
   });
 
   container.append(header, layout.element);
+
+  // The router calls it when the user leaves the Dashboard: the Chart.js chart is freed
+  return () => layout.destroy();
 };
