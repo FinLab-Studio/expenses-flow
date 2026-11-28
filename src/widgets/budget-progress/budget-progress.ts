@@ -1,6 +1,7 @@
 import { formatMoney } from '@/shared/lib/money';
-import { BUDGET_WARNING_THRESHOLD } from './model/constants';
 import { createElement } from '@/shared/lib/dom/create-element';
+import type { BudgetStatus } from '@/shared/types/budget-status.type';
+import { checkBudget } from '@/entities/budget/check-budget';
 
 interface BudgetProgressOptions {
   spentAmount: number;
@@ -15,6 +16,13 @@ interface BudgetProgressComponent {
 const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
 const RING_RADIUS = 54;
 const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+
+// Text of the badge and the BEM modifier of the badge and the ring for each status
+const STATUS_VIEW: Record<BudgetStatus, { label: string; modifier: string }> = {
+  ok: { label: 'On track', modifier: 'normal' },
+  warning: { label: 'Close to limit', modifier: 'warning' },
+  exceeded: { label: 'Over budget', modifier: 'exceeded' },
+};
 
 export function createBudgetProgress({
   spentAmount,
@@ -99,22 +107,12 @@ export function createBudgetProgress({
     remaining.textContent = `${formatMoney(remainingAmount)} left`;
     total.textContent = `of ${formatMoney(nextBudgetAmount)}`;
 
-    let statusClass: 'normal' | 'warning' | 'exceeded';
+    const { label, modifier } = STATUS_VIEW[checkBudget(nextSpentAmount, nextBudgetAmount)];
 
-    if (spentPercentage >= 100) {
-      status.textContent = 'Over budget';
-      statusClass = 'exceeded';
-    } else if (spentPercentage >= BUDGET_WARNING_THRESHOLD) {
-      status.textContent = 'Close to limit';
-      statusClass = 'warning';
-    } else {
-      status.textContent = 'On track';
-      statusClass = 'normal';
-    }
+    status.textContent = label;
+    status.className = `budget-progress__status budget-progress__status--${modifier}`;
 
-    status.className = `budget-progress__status budget-progress__status--${statusClass}`;
-
-    value.setAttribute('class', `budget-progress__value budget-progress__value--${statusClass}`);
+    value.setAttribute('class', `budget-progress__value budget-progress__value--${modifier}`);
 
     remaining.setAttribute(
       'aria-label',
