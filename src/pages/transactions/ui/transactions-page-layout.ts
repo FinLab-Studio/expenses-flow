@@ -7,6 +7,7 @@ import type { Transaction } from '@/entities/transactions/model/transaction.inte
 import { createTransactionList } from '@/widgets/transactions-list/ui/transaction-list';
 import { filterTransactions } from '@/entities/transactions/operations/filter-transactions';
 import { searchTransactions } from '@/entities/transactions/operations/search-transactions';
+import { sortNewestFirst } from '@/entities/transactions/operations/sort-newest-first';
 import { createTransactionControls } from '@/widgets/transaction-controls';
 import { createBalanceSummary } from '@/widgets/balance-summary/ui/balance-summary';
 import { createPageHeader } from '@/widgets/page-header';
@@ -42,8 +43,9 @@ export async function createTransactionsPageLayout(
 
   const selectedMonth = monthParam ? Temporal.PlainYearMonth.from(monthParam) : currentMonth;
 
-  // Page state: read again after the modal saves a transaction (no separate store)
-  let transactions = initialTransactions;
+  // Page state: read again after the modal saves a transaction (no separate store).
+  // Sorted once here: filters and search keep the order.
+  let transactions = sortNewestFirst(initialTransactions);
   let filtersState = getInitialFiltersState(selectedMonth);
   let searchTerm = '';
 
@@ -72,7 +74,7 @@ export async function createTransactionsPageLayout(
 
   // After the modal saved: the new list with the same filters and search
   async function reload(): Promise<void> {
-    transactions = await transactionRepository.getAll();
+    transactions = sortNewestFirst(await transactionRepository.getAll());
 
     // The summary keeps the list it was created with, so it is created again
     const nextSummary = createBalanceSummary({ transactions, period: filtersState });
