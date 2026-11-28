@@ -104,7 +104,11 @@ export function createBudgetProgress({
 
     const remainingAmount = nextBudgetAmount - nextSpentAmount;
 
-    remaining.textContent = `${formatMoney(remainingAmount)} left`;
+    // Over the limit: "428,82 over", not "−428,82 left"
+    remaining.textContent =
+      remainingAmount >= 0
+        ? `${formatMoney(remainingAmount)} left`
+        : `${formatMoney(-remainingAmount)} over`;
     total.textContent = `of ${formatMoney(nextBudgetAmount)}`;
 
     const { label, modifier } = STATUS_VIEW[checkBudget(nextSpentAmount, nextBudgetAmount)];
