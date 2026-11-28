@@ -25,6 +25,7 @@ type PageCleanup = Awaited<ReturnType<RenderPage>>;
 export function createRouter({ routes, outlet, onNavigate }: RouterOptions): Router {
   const leaveHandlers: { path: string; handler: () => void }[] = [];
   let current: Route | undefined;
+  let currentHash = ''; // the whole address of the page shown, with its query
   let cleanup: PageCleanup;
 
   function navigate(): void {
@@ -38,12 +39,15 @@ export function createRouter({ routes, outlet, onNavigate }: RouterOptions): Rou
       history.replaceState(null, '', `#/${route.path}`);
     }
 
-    if (route === current) {
+    // The same address: nothing to do. The same page with another query
+    // ('#/transactions?month=2026-10' → '?month=2026-11') is drawn again with it.
+    if (location.hash === currentHash) {
       return;
     }
 
     leave();
     current = route;
+    currentHash = location.hash;
     document.title = `${route.title} · FinLab`;
     onNavigate(route);
     void show(route);
