@@ -15,6 +15,7 @@ import { createSpendingByCategory } from '@/widgets/spending-by-category/spendin
 interface DashboardPageLayout {
   element: HTMLElement;
   updateMonth: (month: Temporal.PlainYearMonth) => void;
+  destroy: () => void; // frees the charts when the user leaves the page
 }
 
 export async function createDashboardPageLayout(
@@ -86,5 +87,6 @@ export async function createDashboardPageLayout(
   return {
     element,
     updateMonth,
+    destroy: () => spendingByCategory.destroy(),
   };
 }

@@ -15,6 +15,7 @@ interface SpendingByCategoryOptions {
 interface SpendingByCategoryComponent {
   element: HTMLElement;
   updatePeriod: (period: BalancePeriod) => void;
+  destroy: () => void; // frees the Chart.js chart: call it when the page is left
 }
 
 export function createSpendingByCategory({
@@ -169,8 +170,15 @@ export function createSpendingByCategory({
     endDate: Temporal.Now.plainDateISO().toString(),
   });
 
+  // Chart.js keeps every chart in its registry and watches the canvas size:
+  // without destroy() each visit to the Dashboard would leave one more chart behind
+  function destroy(): void {
+    chart?.destroy();
+    chart = null;
+  }
   return {
     element,
     updatePeriod,
+    destroy,
   };
 }

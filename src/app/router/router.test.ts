@@ -113,6 +113,17 @@ describe('createRouter', () => {
     expect(console.error).toHaveBeenCalledOnce();
   });
 
+  it('draws the page again when only the query in the hash changes', async () => {
+    const render = vi.fn();
+    const { router } = setup(`#/${ABOUT_PAGE}?month=2026-10`, render);
+    router.start();
+
+    location.hash = `#/${ABOUT_PAGE}?month=2026-11`;
+    await tick();
+
+    expect(render).toHaveBeenCalledTimes(2);
+  });
+
   it('calls the cleanup at once when the page finishes loading after the user has left', async () => {
     const cleanup = vi.fn();
     let finishLoading = () => {};
